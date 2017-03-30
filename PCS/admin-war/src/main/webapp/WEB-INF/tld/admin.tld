@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>test</shortname>
+	<uri>http://jakarta.apache.org/struts/tags-bean</uri>
+	
+	<!-- 分页  -->
+	<tag>
+		<name>pagination</name>
+		<tagclass>com.idealunited.inf.comm.PageTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<attribute>
+			<description>page对象,封装分页参数,查询结果</description>
+			<name>pageBean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>页面调用Ajax分页方法名</description>
+			<name>methodName</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>分页样式</description>
+			<name>sytleName</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+	
+	<!-- 日历控件 -->
+	<tag>
+		<description>强大的日历控件</description>
+		<name>dateTime</name>
+		<tagclass>com.idealunited.poss.tags.DateTimeTag</tagclass>
+		<bodycontent>empty</bodycontent>
+		<attribute>
+			<description>name,(id=id,name=id)同一个名字</description>
+			<name>id</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>是否显示时间, 默认为不显示</description>
+			<name>isShowTime</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>时间格式, 例:"yyyy-MM-dd"</description>
+			<name>format</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>值</description>
+			<name>value</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>下一个聚焦控件的ID, 比如选择开始时间后自动聚焦到下一个选择结束时间的显示框</description>
+			<name>onfocusId</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>最小时间范围</description>
+			<name>minDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>最大时间范围</description>
+			<name>maxDate</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>控件宽度</description>
+			<name>width</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>容器ID,如果是放在其他容器中就是用该参数和src设置路径</description>
+			<name>caseId</name>
+			<required>false</required>
+		</attribute>
+		<attribute>
+			<description>如果需要绑定日期到其他容器就需要制定图片路径</description>
+			<name>src</name>
+			<required>false</required>
+		</attribute>
+	</tag>
+	
+	<!-- ID转NAME  -->
+	<tag>
+		<description></description>
+		<name>code2name</name>
+		<tagclass>com.idealunited.poss.tags.CodeToName</tagclass>
+		<bodycontent>empty</bodycontent>
+		<attribute>
+			<description>对象列表</description>
+			<name>itemList</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>选中</description>
+			<name>selected</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+	<tag>
+		<name>token</name>
+		<tag-class>com.idealunited.poss.tags.FormTokenTag</tag-class>
+		<body-content>JSP</body-content>
+		<description>
+			token tag
+		</description>
+		<attribute>
+			<name>formId</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>valueOnly</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	
+</taglib>

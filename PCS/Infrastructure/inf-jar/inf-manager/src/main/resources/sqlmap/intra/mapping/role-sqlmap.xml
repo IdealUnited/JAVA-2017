@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="role">
+
+	<typeAlias alias="role" type="com.idealunited.poss.systemmanager.model.Role" />
+	<typeAlias alias="roleFormBean" type="com.idealunited.poss.systemmanager.formbean.RoleFormBean" />	
+	<typeAlias alias="menu" type="com.idealunited.poss.systemmanager.model.ResMenu"/>
+	<typeAlias alias="menuOfRole" type="com.idealunited.poss.systemmanager.model.RoleRes"/>
+	<typeAlias alias="roleOfUser" type="com.idealunited.poss.systemmanager.model.UserRole"/>
+
+	<insert id="insertRole" parameterClass="role">
+		<selectKey resultClass="java.lang.Long" keyProperty="roleKy">
+			select LAST_INSERT_ID() as value
+		</selectKey>
+		insert into
+		role
+		(
+		role_ky,
+		role_code,
+		role_name,
+		status,
+		role_remarks
+		)
+		values
+		(
+		#roleKy#,
+		#roleCode#,
+		#roleName#,
+		#status# ,
+		#roleRemarks#
+		)
+	</insert>
+	
+	<update id="updateRole" parameterClass="role">
+        UPDATE 
+        	ROLE
+        SET 
+			ROLE_CODE = #roleCode#,    
+			ROLE_NAME = #roleName#,   
+			STATUS = #status#,      
+			ROLE_REMARKS = #roleRemarks#
+    	WHERE
+    		ROLE_KY = #roleKy#
+    	<isEmpty prepend="and" property="roleKy">  
+           1 != 1
+        </isEmpty> 
+    </update>
+    
+    <update id="updateRoleRes" parameterClass="menuOfRole">
+        UPDATE 
+        	ROLE_RES
+        SET 
+			ROLE_KY = #roleKy#,        
+			RES_KY = #resKy#,         
+			RES_TYPE_PREFIX = #resTypePrefix#,
+			STATUS = #status#      
+    	WHERE
+        	GRANT_KY = #grantKy#
+        <isEmpty prepend="and" property="grantKy">  
+           1 != 1
+        </isEmpty> 
+    </update>
+    
+	<select id="findAllRole" resultClass="role">
+		select
+		role_ky as roleKy,
+		role_code as roleCode,
+		role_name as roleName,
+		status as status,
+		role_remarks as roleRemarks
+		from
+		role
+    </select>
+    
+    <select id="allRole" resultClass="roleFormBean">
+		SELECT
+			ROLE_KY as roleKy,
+			ROLE_CODE as roleCode,
+			ROLE_NAME as roleName,
+			STATUS as status,
+			ROLE_REMARKS as roleRemarks
+		from
+			ROLE
+    </select>
+    
+    <select id="findAllMenu" resultClass="menu" >
+		select 
+			res_ky   as resKy,
+			name     as name,
+			url      as url,
+			parent   as parent,
+			image    as image,
+			position as position 
+		from 
+			res_menu 
+    </select>
+    
+    <select id="queryMenuOfRole" resultClass="menu">
+		select 
+			a.res_ky as resKy,
+			a.name  as name
+		from 
+			res_menu  a 
+		join 	
+			role_res  b 
+		on  
+			a.res_ky = b.res_ky 
+		where 
+			b.role_ky = #roleId# 
+    </select>
+    
+    <select id="queryRoleOfUser" resultClass="role">
+		select 
+			a.role_ky as roleKy,
+			a.role_name  as roleName
+		from 
+			role  a 
+		join 	
+			user_role  b 
+		on  
+			a.role_ky = b.role_ky 
+		where 
+			b.user_ky = #userId# 
+    </select>
+    
+    <select id="queryRole" resultClass="role">
+		select
+		role_ky as roleKy,
+		role_code as roleCode,
+		role_name as roleName,
+		status as status,
+		role_remarks as roleRemarks
+		from 
+		role
+		where 1=1
+		 <isNotEmpty prepend="and" property="roleName">  
+          		role_name =#roleName#
+        </isNotEmpty>    	
+        <isNotEmpty prepend="and" property="status">  
+          	status			= #status#
+        </isNotEmpty>
+        order by role_ky
+        <isNotNull property="limitClauseStart">
+	        limit $limitClauseStart$,$limitClauseCount$
+	    </isNotNull>
+    </select>
+    
+    <select id="queryRole_COUNT" resultClass="java.lang.Integer">
+		select
+		count(*)
+		from
+		role
+		where 1=1
+		 <isNotEmpty prepend="and" property="roleName">  
+          		role_name 		like   '%'||#roleName#||'%'
+        </isNotEmpty>     	
+        <isNotEmpty prepend="and" property="status">  
+          	status			= #status#
+        </isNotEmpty>
+    </select>
+    
+    <select id="queryRoleByRoleKy" resultClass="role">
+		SELECT
+			ROLE_KY as roleKy,
+			ROLE_CODE as roleCode,   
+			ROLE_NAME as roleName,   
+			STATUS as status,       
+			ROLE_REMARKS as roleRemarks 
+		FROM
+			ROLE
+		WHERE ROLE_KY = #roleKy#
+    </select>
+    
+    <select id="queryRoleRes" resultClass="menuOfRole">
+		SELECT
+			GRANT_KY as grantKy,       
+			ROLE_KY as roleKy,         
+			RES_KY as resKy,          
+			RES_TYPE_PREFIX as resTypePrefix, 
+			STATUS as status         
+		FROM
+			ROLE_RES
+		WHERE ROLE_KY = #roleKy#
+    </select>
+    
+	<delete id="deleteRole" parameterClass="java.lang.String">
+    	DELETE FROM 
+    		ROLE
+        WHERE 
+        	ROLE_KY = #roleKy#
+    </delete>
+    
+    <delete id="deleteRoleRes" parameterClass="menuOfRole">
+    	DELETE FROM 
+    		ROLE_RES
+        WHERE 
+        	GRANT_KY = #grantKy#
+    </delete>
+    
+     <delete id="deleteRoleByRoleAndRes" parameterClass="com.idealunited.poss.systemmanager.model.RoleRes">
+    	DELETE FROM 
+    		ROLE_RES
+        WHERE 
+        	role_ky = #roleKy#
+        	and res_ky = #resKy#
+    </delete>
+    
+    <delete id="dropMenuOfRole" parameterClass="java.util.Map">
+    	delete from 
+    		role_res
+        where 
+        	role_ky = #roleId#
+        and
+        	res_ky = #menuId#	
+    </delete>
+    
+    <delete id="dropRoleOfUser" parameterClass="java.util.Map">
+    	delete from 
+    		user_role
+        where 
+        	role_ky = #roleId#
+        and
+        	user_ky = #userId#	
+    </delete>
+    
+    <insert id="insertMenuOfRole" parameterClass="menuOfRole">
+		<selectKey resultClass="java.lang.Long" keyProperty="grantKy">
+			select LAST_INSERT_ID() as value
+		</selectKey>
+		insert into
+		role_res
+		(
+		grant_ky,
+		role_ky,
+		res_ky,
+		res_type_prefix,
+		status		
+		)
+		values
+		(
+		#grantKy#,
+		#roleKy#,
+		#resKy#,
+		#resTypePrefix# ,
+		#status#
+		)
+	</insert>
+	
+	<insert id="insertRoleOfUser" parameterClass="roleOfUser">
+		<selectKey resultClass="java.lang.Long" keyProperty="grantKy">
+			select LAST_INSERT_ID() as value 
+		</selectKey>
+		insert into
+		user_role
+		(
+		grant_ky,
+		role_ky,
+		user_ky,		
+		status		
+		)
+		values
+		(
+		#grantKy#,
+		#roleKy#,
+		#userKy#,
+		#status#
+		)
+	</insert>
+	
+	<select id="queryUsersRoleByRoleKy" resultClass="java.util.HashMap">
+		SELECT 
+		u.login_id AS  LOGIN_ID,
+		u.user_ky AS USER_KEY,
+		r.role_name AS ROLE_NAME
+  		FROM user_role ur
+  		JOIN ROLE r 
+    	ON ur.role_ky = r.role_ky
+  		JOIN users u
+    	ON ur.user_ky = u.user_ky
+    	WHERE  r.role_code = #roleCode#
+	</select>
+    
+</sqlMap>

@@ -1,0 +1,342 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首页-新生支付销售管理系统</title>
+
+    <!-- Bootstrap -->
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/flat-ui.min.css" rel="stylesheet">
+	<link href="../bootstrap/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../bootstrap/css/jquery.bs_pagination.css" rel="stylesheet">
+    <link href="../bootstrap/css/jquery.bs_grid.css" rel="stylesheet">
+	<link href="../css/beacon.css" rel="stylesheet">
+		<script type="text/javascript" src="../javascripts/echarts.simple.min.js" ></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="../bootstrap/js/html5shiv.js"></script>
+    <![endif]-->
+	
+	<!-- theme -->
+
+     
+  </head>
+  
+  <body>
+	<div class="beacon-top">
+		<div class="container-beacon">
+			<img src="../images/beacon_logo.png" class="beacon-logo" alt="beacon" />
+				<div class="username-label pull-right">
+					WeiWei
+				</div>
+				<div class="portrait pull-right">
+					<img src="../images/portrait_sample.png" alt="portrait"/>
+				</div>
+				<div class="pull-right">
+					<div class="btn-group util-group">
+					 <a href="zhxx.html" class="btn btn-primary " data-toggle="tooltip" data-placement="bottom" title="账户信息"><i class="glyphicon glyphicon-user"></i></a>
+					  <a href="xgmm.html" class="btn btn-primary"  data-toggle="tooltip" data-placement="bottom" title="修改密码"><i class="glyphicon glyphicon-lock"></i></a>
+					  <a href="login_demo.html" class="btn btn-primary btn-group-last" data-toggle="tooltip" data-placement="bottom" title="退出"><i class="glyphicon glyphicon-off"></i></a>
+					</div>
+				</div>
+		</div>
+	</div>
+	<nav class="beacon-navbar">
+		<ul class="beacon-nav clearfix">
+			<li class="dropdown">
+			
+				<a id="" role="button" data-toggle="dropdown" class="btn btn-primary " data-target="#"
+				   href="#">
+					运营信息管理 <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+					<div class="dropdown-menu-arrow"></div>
+					<li><a href="jymx.html">运营汇总查询</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a id="" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#"
+				   href="#">
+					销售信息管理 <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu multi-level ml-40" role="menu" aria-labelledby="dropdownMenu">
+					<div class="dropdown-menu-arrow"></div>
+					<li><a href="xsjymx.html">销售汇总查询</a></li>
+					<li><a href="ddcx.html">订单查询</a></li>
+					<li><a href="index.html">近期交易概况</a></li>
+					<li><a href="shcx.html">商户查询</a></li>
+				</ul>
+			</li>
+			<li class="dropdown">
+				<a id="" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#"
+				   href="#">
+					系统管理 <span class="caret"></span>
+				</a>
+				<ul class="dropdown-menu multi-level ml-40" role="menu" aria-labelledby="dropdownMenu">
+					<div class="dropdown-menu-arrow"></div>
+					<li class="dropdown-submenu">
+						<a tabindex="-1" href="#">权限管理</a>
+						<ul class="dropdown-menu ml-88">
+							<li><a tabindex="-1" href="yhgl.html">用户管理</a></li>
+							<li class="">
+								<a href="jsgl.html">角色管理</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</nav>
+	<div class="main">
+		<div class="container-beacon">
+			
+			<div class="panel panel-default">
+				<div class="panel-heading clearfix">
+					
+				</div>
+				<div class="panel-body">
+					<div class="indexz">
+						<div class="indexzs">
+							<h4>欢迎<span>xxx用户</span></h4>
+							<p>签约商户<span>222</span>家，其中<span>22</span>家商户签约满一年。<button type="button" class="btn btn-info">导出</button></p>
+						</div>
+						<div class="indexzx">
+							<div class="tubiao1"><br />
+								
+								 <div id="main" style="width: 480px;height:400px; float: left;"></div>
+								 <div id="main2" style="width: 480px;height:400px; float: left;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="indexy">
+						<div class="indexzs">
+							<table width="435" height="252" border="1">
+							  <tbody>
+							    <tr>
+							      <td>&nbsp;</td>
+							      <td>入款总金额</td>
+							      <td>入款总笔数</td>
+							      <td>出款总金额</td>
+							      <td>出款总笔数</td>
+							    </tr>
+							    <tr>
+							      <td>T-7日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-6日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-5日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-4日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-3日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-2日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>T-1日</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>近7日总计</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    <tr>
+							      <td>本月总计</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							      <td>&nbsp;</td>
+							    </tr>
+							    
+							  </tbody>
+							 
+						</div>
+						
+					</div>
+					
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../bootstrap/js/jquery.min.js"></script>
+  <!--   <script src="../bootstrap/js/bootstrap.min.js"></script>
+
+    Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../bootstrap/js/flat-ui.min.js"></script>
+	<script src="../bootstrap/js/bootstrap-datetimepicker.min.js"></script>
+	<script src="../bootstrap/js/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script src="../bootstrap/js/jquery.bs_pagination.js"></script>
+    <script src="../bootstrap/js/jquery.bs_pagination.zh_CN.js"></script>
+    <script src="../bootstrap/js/jquery.bs_grid.js"></script>
+    <script src="../bootstrap/js/jquery.bs_grid.zh_CN.js"></script>
+    <script src="../javascripts/pages/My97DatePicker/WdatePicker.js"></script>
+	<script src="../bootstrap/js/application.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+    <script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/line'// 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('main')); 
+                
+                var option = {
+                	title: {
+							        show: true,
+							        title:'近7日交易金额',
+							        text: '近7日交易金额'
+							    },
+                    tooltip: {
+                        show: true,
+                         trigger: 'axis'
+                    },
+                    legend: {
+                        data:['入款总金额','出款总金额']
+                    },
+                     
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data: ['T-7日','T-6日','T-5日','T-4日','T-3日','T-2日','T-1日']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"入款总金额",
+                            "type":"line",
+                            "data":[2500000, 2000000, 4000000, 2500000, 1800000, 2100000,1400000]
+                        },
+                        {
+                            "name":"出款总金额",
+                            "type":"line",
+                            "data":[1900000, 2200000, 3300000, 3000000, 3500000, 2200000,1700000]
+                        }
+                    ]
+                };
+        
+                // 为echarts对象加载数据 
+                myChart.setOption(option); 
+            }
+        );
+    </script>
+	
+		<script type="text/javascript">
+        // 路径配置
+        require.config({
+            paths: {
+                echarts: 'http://echarts.baidu.com/build/dist'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line',
+                'echarts/chart/line'// 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart2 = ec.init(document.getElementById('main2')); 
+                
+                var option2 = {
+                	title: {
+							        show: true,
+							        title:'近7日交易笔数',
+							        text: '近7日交易笔数'
+							    },
+                    tooltip: {
+                        show: true,
+                         trigger: 'axis'
+                    },
+                    legend: {
+                        data:['入款总笔数','出款总笔数']
+                    },
+                     
+                    xAxis : [
+                        {
+                            type : 'category',
+                            data: ['T-7日','T-6日','T-5日','T-4日','T-3日','T-2日','T-1日']
+                        }
+                    ],
+                    yAxis : [
+                        {
+                            type : 'value'
+                        }
+                    ],
+                    series : [
+                        {
+                            "name":"入款总笔数",
+                            "type":"line",
+                            "data":[100000, 120000, 143000,140000, 90000, 120000,90000]
+                        },
+                        {
+                            "name":"出款总笔数",
+                            "type":"line",
+                            "data":[120000, 93000, 103000, 134000, 60000, 122000,90000]
+                        }
+                    ]
+                };
+        
+                // 为echarts对象加载数据 
+                myChart2.setOption(option2); 
+            }
+        );
+    </script>
+  </body>
+</html>

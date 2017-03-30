@@ -1,0 +1,127 @@
+.toggle {
+  background-color: #34495e;
+  border-radius: 60px;
+  color: white;
+  height: 29px;
+/*   margin: 0 12px 12px 0; */
+  overflow: hidden;
+  *zoom: 1;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden; }
+  .toggle:before, .toggle:after {
+    display: table;
+    content: ""; }
+  .toggle:after {
+    clear: both; }
+  .toggle.toggle-off {
+    background-color: #cbd2d8; }
+    .toggle.toggle-off .toggle-radio {
+      background-image: url("../../images/icon-off.png");
+      background-size: contain;
+      background-position: 5px 3px;
+      color: white;
+      left: 0;
+      margin-left: 0.5px;
+      margin-right: -13px;
+      z-index: 1; }
+      .toggle.toggle-off .toggle-radio:first-child {
+        left: -120%; }
+  .toggle .toggle-radio {
+    background: url("../../images/icon-on.png") right top no-repeat;
+    background-size: contain;
+    background-position: 55px 3px;
+    color: #1abc9c;
+    display: block;
+    font-weight: 700;
+    height: 21px;
+    left: 120%;
+    margin-left: -13px;
+    padding: 5px 32px 3px;
+    position: relative;
+    text-align: center;
+    z-index: 2;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden; }
+    .toggle .toggle-radio:first-child {
+      margin-bottom: -20px;
+      left: 0; }
+  .toggle input {
+    display: none;
+    position: absolute;
+    outline: none !important;
+    display: block\9;
+    opacity: 0.01;
+    filter: alpha(opacity=1);
+    zoom: 1; }
+  .toggle.toggle-icon {
+    border-radius: 6px 7px 7px 6px; }
+    .toggle.toggle-icon.toggle-off {
+      border-radius: 7px 6px 6px 7px; }
+      .toggle.toggle-icon.toggle-off .toggle-radio {
+        background-image: url("../images/toggle/block-off.png");
+        background-position: 0 0; }
+    .toggle.toggle-icon .toggle-radio {
+      background-image: url("../images/toggle/block-on.png");
+      background-position: 62px 0;
+      border-radius: 6px;
+      min-width: 27px;
+      text-align: right; }
+      .toggle.toggle-icon .toggle-radio:first-child {
+        text-align: left; }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-moz-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 3 / 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min--moz-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 2) {
+  .toggle.toggle-off .toggle-radio {
+    background-image: url("../images/toggle/icon-off-2x.png");
+    background-size: 30px 29px; }
+  .toggle .toggle-radio {
+    background-image: url("../images/toggle/icon-on-2x.png");
+    background-size: 30px 29px; } }
+
+    
+.toggle label {
+	font-size: 14px;
+	line-height: 20px;
+	max-width: 100%;
+}
+    
+th {
+	width: 200px;
+	font-weight: bold;
+	background: #ccc;
+	height: 50px;
+	text-align: center;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	border-left: 1px solid #888;
+	border-top: 1px solid #888;
+}
+td {
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+/* 	padding: 5px 15px; */
+/* 	height: 90px; */
+}
+.currMonth {
+	font-family: 黑体;
+	font-weight: bold;
+	font-size: 30px;
+}
+.enable {
+	background: #1d953f;
+}
+.unenable {
+	background: #d9d6c3;
+}

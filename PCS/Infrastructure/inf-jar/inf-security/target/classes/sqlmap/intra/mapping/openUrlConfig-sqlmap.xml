@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="openUrlConfig">
+
+	<typeAlias alias="openUrlConfig"
+		type="com.idealunited.poss.security.model.OpenUrlConfig" />
+	<typeAlias alias="openUrlIpGroup"
+		type="com.idealunited.poss.security.model.OpenUrlIpGroup" />
+
+	<select id="findByUrl" resultClass="openUrlConfig">
+		select t.config_id configId,
+		t.open_url openUrl,
+		t.ip_check ipCheck,
+		t.ips ips,
+		t.remark remark
+		from open_url_config t where t.open_url = #url#
+    </select>
+
+	<select id="findIpGroupByConfigId" resultClass="openUrlIpGroup">
+		select
+		t.config_id configId,
+		t.group_id groupId,
+		t.start_ip startIp,
+		t.end_Ip endIp,
+		t.remark remark
+		from open_url_ip_group t where t.config_id = #configId#
+		order by config_id asc
+    </select>
+
+	<select id="findAllOpenUrls" resultClass="string">
+		select
+		t.open_url openUrl
+		from open_url_config t
+		order by t.config_id asc 
+    </select>
+    
+    <insert id="createOpenUrlConfig" parameterClass="openUrlConfig">
+    	<selectKey resultClass="java.lang.Long" keyProperty="configId">
+    		SELECT nvl(max(config_id),1)+1  FROM open_url_config
+		</selectKey>
+    	insert into open_url_config (CONFIG_ID, OPEN_URL, IP_CHECK, IPS, REMARK)
+		values (#configId#, #openUrl#, #ipCheck#, #ips#, #remark#)
+    </insert>
+    
+    <insert id="createIpGroup" parameterClass="openUrlIpGroup">
+   		 <selectKey resultClass="java.lang.Long" keyProperty="groupId">
+    		SELECT nvl(max(GROUP_ID),1)+1  FROM open_url_ip_group
+		</selectKey>
+    	insert into open_url_ip_group (GROUP_ID, CONFIG_ID, START_IP, END_IP, REMARK)
+		values (#groupId#, #configId#, #startIp#, #endIp#, #remark#)
+    </insert>
+    
+    <update id="updateIpGroup" parameterClass="openUrlIpGroup">
+    	UPDATE open_url_ip_group  t
+    	SET
+    	t.start_ip = #startIp#,
+		t.end_Ip = #endIp#,
+		t.remark = #remark#
+    	WHERE 	group_id = #groupId#
+    </update>
+    
+    <update id="updateOpenUrlConfig" parameterClass="openUrlConfig">
+    	UPDATE open_url_config  t
+    	SET
+    	t.open_url = #openUrl#,
+		t.ip_check = #ipCheck#,
+		t.ips = #ips#,
+		t.remark = #remark#
+    	WHERE 	config_id = #configId#
+    </update>
+
+	<delete id="deleteIpGroup" 
+		parameterClass="long">
+		delete 
+		from open_url_ip_group t where t.group_id = #groupId#
+    </delete>
+    
+    <delete id="deleteIpGroupByConfig" 
+		parameterClass="long">
+		delete 
+		from open_url_ip_group t where t.config_id = #configId#
+    </delete>
+    
+     <delete id="deleteUrlConfig" 
+		parameterClass="long">
+		delete 
+		from open_url_config t where t.config_id = #configId#
+    </delete>
+
+</sqlMap>

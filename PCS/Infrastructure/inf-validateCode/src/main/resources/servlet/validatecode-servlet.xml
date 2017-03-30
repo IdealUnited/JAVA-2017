@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="ValidateCodeHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/validatecode/validatecode.htm">
+					authServlet
+				</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- bean name="validateCodeController" class="com.validate.controller.ValidateCodeController"
+		singleton="false">
+		<property name="actionFlg">
+			<value>0</value>
+		</property>
+	</bean-->
+	
+	<bean name="authServlet" class="com.validate.controller.AuthServlet"
+		singleton="false">
+		<property name="actionFlg">
+			<value>1</value>
+		</property>
+	</bean>
+</beans>

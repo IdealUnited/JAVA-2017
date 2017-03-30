@@ -1,0 +1,23 @@
+.first {}
+
+.p_table {
+	width: 100%;
+	height: 16px;
+	
+	padding: 0px 0px 0px 0px;
+}
+
+.p_first { width: 30px; background: url(page/images/4.1.gif); }
+.p_nofirst{ width: 30px; background: url(page/images/4.gif); cursor: pointer; }
+.p_previous{ width: 30px; background: url(page/images/2.1.gif); }
+.p_noprevious{ width: 30px; background: url(page/images/2.gif); cursor: pointer; }
+.p_next{ width: 30px; background: url(page/images/1.gif); cursor: pointer; }
+.p_nonext{ width: 30px; background: url(page/images/1.1.gif); }
+.p_last{ width: 30px; background: url(page/images/3.1.gif); }
+.p_nolast{ width: 30px; background: url(page/images/3.gif); cursor: pointer; }
+.p_input{ width: 170px;}
+.p_input input{ width: 20px; background: #ffffff; height: 15px;}
+.p_footer { width: 300px; text-align: right; padding-right: 20px; }
+
+
+.finger { cursor: pointer; }

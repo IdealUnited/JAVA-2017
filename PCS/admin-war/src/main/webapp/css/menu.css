@@ -1,0 +1,64 @@
+td {
+	font-size: 12px;
+}
+td.content {
+	line-height: 140%;
+	color: #000000;
+}
+
+a:link, a:active{
+	color: #3A80B8;
+	text-decoration: none;
+}
+a:visited{  
+	color: #3A80B8;
+	text-decoration: none;
+}
+a:hover{
+	color: #ff9900;
+	text-decoration: underline;
+}
+
+.node {
+	font-size: 12px; width: 1px; color: #000000; font-family: verdana
+}
+.node a {
+	color: #000000; text-decoration: none
+}
+.node a:hover {
+	color: #ff0000; text-decoration: underline
+}
+span {
+	border-right: 1px; border-top: 1px; border-left: 1px; cursor: hand; border-bottom: 1px; height: 15px
+}
+body {
+	scrollbar-face-color: #b9daff;  scrollbar-highlight-color: #b9daff; scrollbar-shadow-color: #b9daff; color: #000000; scrollbar-3dlight-color: #4a8ec6; scrollbar-arrow-color: #ffffff; scrollbar-track-color: #d9ebff; font-family: "helvetica", "arial", "verdana",; scrollbar-darkshadow-color: #4a8ec6;
+}
+
+.titlestyle{
+background-color:#4a8ec6;color:#ffffff;border-top:1px solid #ffffff;font-size:9pt;cursor:hand;
+}
+.contentstyle{
+background-color:#4a8ec6;color:blue;font-size:9pt;
+}.leftmenu-x {
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+.lefttitle-1 {
+	font-family: "ËÎÌו";
+	font-size: 13px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #1C60AB;
+}
+.lefttitle-1 a:link {
+	color: #1C60AB;
+	text-decoration: none;
+}
+.lefttitle-1 a:visited {
+	color: #1C60AB;text-decoration: none
+}
+.lefttitle-1 a:hover {
+	color: #1C60AB;text-decoration: none
+}
+

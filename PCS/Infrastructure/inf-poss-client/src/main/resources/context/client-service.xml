@@ -1,0 +1,57 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean id="client-txnCoreService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.txncoreUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+
+	<bean id="txncoreSkuClientService" class="com.idealunited.client.TxncoreSkuClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreStockClientService" class="com.idealunited.client.TxncoreStockClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreOrderClientService" class="com.idealunited.client.TxncoreOrderClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreProductTypeClientService" class="com.idealunited.client.TxncoreProductTypeClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreRepositoryClientService" class="com.idealunited.client.TxncoreRepositoryClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreChannelClientService" class="com.idealunited.client.TxncoreChannelClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreChannelOrderClientService" class="com.idealunited.client.TxncoreChannelOrderClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreQuotationClientService" class="com.idealunited.client.TxncoreQuotationClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreCountryClientService" class="com.idealunited.client.TxncoreCountryClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="txncoreCurrencyExchangeRateClientService" class="com.idealunited.client.TxncoreCurrencyExchangeRateClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+</beans>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="org">
+
+	<typeAlias alias="org" type="com.idealunited.poss.systemmanager.model.Org" />
+	<insert id="create" parameterClass="org">
+		
+        INSERT INTO 
+        	ORG 
+        	(
+        	  ORG_KY,
+			ORG_CODE,
+			ORG_NAME,
+			ORG_KIND,
+			ORG_TYPE,
+			ORG_LEVEL,
+			PARENT_ORG,
+			ORG_MGR,
+			AREA_CODE,
+			STATUS
+            )
+        	VALUES 
+        	(
+	       		#orgKy#,
+				#orgCode#,
+				#orgName#,
+				#orgKind#,
+				#orgType#,
+				#orgLevel#,
+				#parentOrg#,
+				#orgMgr#,
+				#areaCode#,
+				#status#
+        	)
+    </insert>
+	
+    <select id="allOrg" resultClass="org">
+    	SELECT 
+    			ORG_KY as     orgKy    ,
+			ORG_CODE as       orgCode  ,
+			ORG_NAME as       orgName  ,
+			ORG_KIND as       orgKind  ,
+			ORG_TYPE as       orgType  ,
+			ORG_LEVEL as      orgLevel ,
+			PARENT_ORG as     parentOrg,
+			ORG_MGR as        orgMgr   ,
+			AREA_CODE as      areaCode     ,     
+			STATUS   as      status
+    	FROM 
+    		org o
+    </select>
+    
+    <select id="findById" resultClass="org">
+      	SELECT 
+    		ORG_KY as     orgKy    ,
+			ORG_CODE as       orgCode  ,
+			ORG_NAME as       orgName  ,
+			ORG_KIND as       orgKind  ,
+			ORG_TYPE as       orgType  ,
+			ORG_LEVEL as      orgLevel ,
+			PARENT_ORG as     parentOrg,
+			ORG_MGR as        orgMgr   ,
+			AREA_CODE as      areaCode     ,     
+			STATUS   as      status
+    	FROM 
+    		org o
+    		where o.org_ky = #orgKy#
+    </select>
+    
+    <select id="findByOrgCode" resultClass="org">
+       SELECT 
+    			ORG_KY as     orgKy    ,
+			ORG_CODE as       orgCode  ,
+			ORG_NAME as       orgName  ,
+			ORG_KIND as       orgKind  ,
+			ORG_TYPE as       orgType  ,
+			ORG_LEVEL as      orgLevel ,
+			PARENT_ORG as     parentOrg,
+			ORG_MGR as        orgMgr   ,
+			AREA_CODE as      areaCode     ,     
+			STATUS   as      status
+    	FROM 
+    		org o
+    		where o.ORG_CODE = #orgCode#
+    </select>
+    
+</sqlMap>

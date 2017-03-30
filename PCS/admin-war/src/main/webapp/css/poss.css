@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { padding:0; margin:0; }
+body { font: 12px/1.5 Tahoma, Helvetica, \5b8b\4f53, sans-serif;background:#466AC0; min-width:1000px;}
+ol, ul { list-style:none outside; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; }
+fieldset, img { border:0; }
+a { text-decoration:none; color:#666; outline:none;}
+a:hover { text-decoration:underline; color:#B10000;}
+em, i { font-style:normal; }
+input, textarea { padding:2px; }
+input, select, textarea { font:12px Tahoma, Arial, simsun; vertical-align:middle; }
+textarea {overflow-y:auto; border:1px #ccc solid; }
+
+.login_box{margin-top:50%;background:url(../images/poss_bg.jpg) center top no-repeat;}
+.login_con{ width:720px;height:236px; margin:-40% auto 0; padding:160px 0 0 280px;color:#047CD0;}
+.login_con p{ margin-bottom:10px;}
+.login_con label{ width:50px; display:inline-block; font-weight:700;}
+.login_con .input_txt{ width:180px; padding:5px; border:1px solid #AED2F8; background:#fff; color:#047CD0;}
+.login_con .s_btn{ padding-left:50px;}
+.poss_btn{ width:86px; height:30px; border:0; background:url(../images/poss_btn.png) no-repeat;}

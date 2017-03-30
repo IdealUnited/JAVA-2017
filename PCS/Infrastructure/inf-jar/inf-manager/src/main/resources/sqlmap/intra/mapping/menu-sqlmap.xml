@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="menu">
+	
+	<typeAlias alias="menu" type="com.idealunited.poss.systemmanager.model.ResMenu"/>
+	<typeAlias alias="menuFormBean" type="com.idealunited.poss.systemmanager.formbean.MenuFormBean"/>
+	
+	<resultMap class="com.idealunited.poss.systemmanager.model.ResMenu" id="resMenuMap">
+		<result property="resKy" column="RES_KY" />
+		<result property="code" column="CODE" />
+		<result property="url" column="URL" />
+		<result property="parent" column="PARENT" />
+		<result property="image" column="IMAGE" />
+		<result property="position" column="POSITION" />
+		<result property="status" column="STATUS" />
+		<result property="name" column="NAME" />
+		<result property="authorityFlag" column="authority_flag" />
+	</resultMap>
+	<!-- 查询树所用的level字段 -->
+	<resultMap class="com.idealunited.poss.systemmanager.model.ResMenu" id="resMenuTreeMap" extends="resMenuMap">
+	</resultMap>
+	
+	<insert id="insertMenu" parameterClass="menu">
+		<selectKey resultClass="long" keyProperty="resKy" >     
+      	select LAST_INSERT_ID() as value
+   		</selectKey>	
+		insert into	res_menu(res_ky,name,code,url,parent,image,position,status,authority_Flag)
+		values(#resKy#,#name#,#code#,#url# ,#parent#,#image#,#position#,#status#,#authorityFlag#)
+	</insert>
+	
+	<delete id="delete">
+    	delete from res_menu where res_ky = #id#
+    </delete>
+    
+    <update id="update" parameterClass="menu">
+        UPDATE 
+			RES_MENU
+        SET 
+			RES_KY = #resKy#,  
+			CODE = #code#,    
+			NAME = #name#,    
+			URL = #url#,     
+			PARENT = #parent#,  
+			IMAGE = #image#,  
+			POSITION = #position#,
+			authority_Flag = #authorityFlag#
+    	WHERE 
+        	RES_KY = #resKy#
+    </update>
+    
+    <select id="queryParentMenuByRoleCode" resultClass="menuFormBean">
+    	SELECT 
+		t_r.ROLE_KY AS roleKy,       
+		t_r.ROLE_CODE AS roleCode,    
+		t_r.ROLE_NAME AS roleName,    
+		t_r.STATUS AS status,       
+		t_r.ROLE_REMARKS AS roleRemarks,
+		t_rsm.RES_KY AS resky,   
+		t_rsm.CODE AS code,     
+		t_rsm.NAME AS name,     
+		t_rsm.URL AS url,      
+		t_rsm.PARENT AS parent,   
+		t_rsm.IMAGE AS image,    
+		t_rsm.POSITION AS position
+    	FROM ROLE t_r JOIN
+		(SELECT t_rm.RES_KY,t_rm.code,t_rm.name,t_rm.url,t_rm.parent,t_rm.image,t_rm.position,t_rm.status,t_rm.authority_flag authorityflag,t_rs.role_ky 
+		FROM ROLE_RES t_rs JOIN RES_MENU t_rm
+		ON t_rs.res_ky = t_rm.res_ky where t_rs.res_type_prefix = 1 and t_rm.parent = 0) t_rsm
+		ON t_r.role_ky = t_rsm.role_ky
+        <iterate property="userRoleCodeList" prepend=" WHERE t_r.ROLE_KY in" open="(" close=")" conjunction=",">
+             #userRoleCodeList[]#
+         </iterate>
+    </select>
+    
+    <select id="queryParentMenuByRoleKy" resultClass="menuFormBean">
+    	SELECT
+			T_A.RES_KY AS resKy,   
+			T_A.CODE AS code,     
+			T_A.NAME AS name,     
+			T_A.URL AS url,      
+			T_A.PARENT AS parent,   
+			T_A.IMAGE AS image,    
+			T_A.POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU T_A
+		  JOIN (SELECT DISTINCT RES_KY
+		          FROM ROLE_RES
+		         WHERE ROLE_KY IN
+		               (SELECT ROLE_KY
+		                  FROM ROLE
+		                   <iterate property="userRoleKyList" prepend=" WHERE ROLE_KY in" open="(" close=")" conjunction=",">
+           					 #userRoleKyList[]#
+         				   </iterate>
+         				))T_B
+		    ON T_A.RES_KY = T_B.RES_KY
+		    WHERE T_A.PARENT = 0
+		    ORDER BY POSITION ASC
+    </select>
+    
+    <select id="queryMenuResKyByRoleKy" resultClass="menuFormBean">
+    	SELECT
+			T_A.RES_KY AS resKy,   
+			T_A.CODE AS code,     
+			T_A.NAME AS name,     
+			T_A.URL AS url,      
+			T_A.PARENT AS parent,   
+			T_A.IMAGE AS image,    
+			T_A.POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU T_A
+		  JOIN (SELECT DISTINCT RES_KY
+		          FROM ROLE_RES
+		         WHERE ROLE_KY IN
+		               (SELECT ROLE_KY
+		                  FROM ROLE
+		                  <iterate property="userRoleKyList" prepend=" WHERE ROLE_KY in" open="(" close=")" conjunction=",">
+           					 #userRoleKyList[]#
+         				  </iterate>
+         				))T_B
+		    ON T_A.RES_KY = T_B.RES_KY
+    </select>
+    
+    <select id="queryMenuByPerentCode" resultClass="menuFormBean">
+    	SELECT
+			RES_KY AS resKy,   
+			CODE AS code,     
+			NAME AS name,     
+			URL AS url,      
+			PARENT AS parent,   
+			IMAGE AS image,    
+			POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU 
+		  WHERE PARENT = #parentCode#
+		  ORDER BY POSITION ASC
+    </select>
+    
+    <select id="queryRootMenu" resultClass="menuFormBean">
+    	SELECT
+			RES_KY AS resKy,   
+			CODE AS code,     
+			NAME AS name,     
+			URL AS url,      
+			PARENT AS parent,   
+			IMAGE AS image,    
+			POSITION AS position
+		  FROM RES_MENU 
+		  WHERE PARENT = 0
+		  ORDER BY POSITION ASC
+    </select>
+    
+    <select id="queryResKyByRoleKy" resultClass="java.lang.String">
+    	SELECT
+			RES_KY   
+		  FROM ROLE_RES 
+		  WHERE ROLE_KY = #roleKy#
+    </select>
+    
+    <select id="findById" resultClass="menu">
+    	SELECT
+			RES_KY AS resKy,   
+			CODE AS code,     
+			NAME AS name,     
+			URL AS url,      
+			PARENT AS parent,   
+			IMAGE AS image,    
+			POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU 
+		  WHERE RES_KY = #resKy#
+		  ORDER BY POSITION ASC
+    </select>
+    
+    <select id="queryResMenuByResKy" resultClass="menuFormBean">
+    	SELECT
+			RES_KY AS resKy,   
+			CODE AS code,     
+			NAME AS name,     
+			URL AS url,      
+			PARENT AS parent,   
+			IMAGE AS image,    
+			POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU 
+		  WHERE RES_KY = #resKy#
+		  ORDER BY POSITION ASC
+    </select>
+    
+     <select id="queryMenuByPerentKy" resultClass="menuFormBean">
+    	SELECT
+			RES_KY AS resKy,   
+			CODE AS code,     
+			NAME AS name,     
+			URL AS url,      
+			PARENT AS parent,   
+			IMAGE AS image,    
+			POSITION AS position,
+			authority_flag authorityflag
+		  FROM RES_MENU 
+		  WHERE PARENT = #perentKy#
+		  ORDER BY POSITION ASC
+    </select>
+    
+	<select id="maxPositionByPerant" resultClass="integer">
+		SELECT nvl(max(t.position),0) posi from res_menu t where parent = #parent# 
+	</select>
+    
+    <select id="queryForMenuTree" resultMap="resMenuTreeMap" >
+		SELECT t.* from res_menu t
+			ORDER by position asc
+    </select>
+    
+    <!-- 只查询等级<=3的菜单 -->
+    <select id="queryForCurrMenuTree" resultMap="resMenuTreeMap">
+    	select rm.* from res_menu rm where 1=1 and status =1
+	 <isEqual compareValue="0" property="isSuperAdmin">
+	 	and rm.res_ky in (select rre.res_ky from role_res rre where rre.role_ky in (select ur.role_ky from users u join user_role ur on ur.user_ky = u.user_ky where u.login_id = #loginId#))
+	 </isEqual>
+	  ORDER by position asc
+    </select>
+    
+    <select id="getResMenuIdByRoleKy"  resultClass="long">
+	    select rm.res_ky 
+	  		from res_menu rm
+	  		join role_res rr
+	   		 on rm.res_ky = rr.res_ky
+	   		and rr.role_ky = #roleKey#
+    </select>
+    
+</sqlMap>

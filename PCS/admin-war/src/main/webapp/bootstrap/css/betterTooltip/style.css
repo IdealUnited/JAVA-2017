@@ -1,0 +1,50 @@
+/*-----------------------------------------------------------------------------------------------*/
+/*                                          GENERAL STYLES                                       */
+/*-----------------------------------------------------------------------------------------------*/
+	
+p {margin: 15px 0; font-family: Arial, Helvetica, sans-serif;}
+
+h1 {font-size: 1.4em;}
+h2 {font-weight: bold;}
+
+strong {font-weight: bold;}
+
+textarea {white-space: nowrap;}
+
+/*-----------------------------------------------------------------------------------------------*/
+/*                                          GENERAL LAYOUT                                       */
+/*-----------------------------------------------------------------------------------------------*/
+
+body {background: #FFF url(images/bg.png) repeat-x top;}
+
+#wrapper {width: 960px; margin: auto; padding: 50px 0;}
+
+	#content {
+		
+		padding: 15px 25px; 
+		float: left; 
+		background: transparent url(images/leftColumn.gif) no-repeat; 
+		min-height: 575px;
+		height: auto !important;
+		height: 575px;}
+		
+	#main {width: 640px; height: 500px; margin-top: 7px; position: relative; float: left; background: transparent url(images/clouds.gif) no-repeat;}
+	
+	.tTip {cursor: pointer; color: #666; font-weight: bold;}
+	.tip {color: #333;}
+	
+/*-----------------------------------------------------------------------------------------------*/
+/*                                         TOOLTIP STYLES                                        */
+/*-----------------------------------------------------------------------------------------------*/
+
+.tip {
+	width: 212px;
+	padding-top: 37px;
+	overflow: hidden;
+	display: none;
+	position: absolute;
+	z-index: 500;
+	background: transparent url(images/tipTop.png) no-repeat top;}
+	
+.tipMid {background: transparent url(images/tipMid.png) repeat-y; padding: 0 25px 20px 25px;}
+.tipBtm {background: transparent url(images/tipBtm.png) no-repeat bottom; height: 32px;}

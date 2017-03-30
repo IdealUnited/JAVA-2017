@@ -1,0 +1,89 @@
+/* CSS Document */
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;border:0;}
+ul,ol,li{list-style:none;}
+input,button{margin:0;font-size:12px;vertical-align:middle;}
+body{font-size:12px;font-family:Arial, Helvetica, sans-serif; margin:0 auto; }
+table{border-collapse:collapse;border-spacing:0;}
+
+.clearfloat{height:0;font-size:1px;clear:both;line-height:0;}
+
+a{color:#333;text-decoration:none;}
+a:hover{color:#ef9b11; text-decoration:underline;}
+
+
+H2 {
+	FONT-WEIGHT: normal; FONT-SIZE: 100%
+}
+
+
+.hidden {
+	DISPLAY: none
+}
+
+.pnav-title {
+	PADDING-LEFT: 26px; FONT-WEIGHT: bold; BACKGROUND: url(bg06.jpg) no-repeat; MARGIN-BOTTOM: 10px; WIDTH: 166px; LINE-HEIGHT: 29px; HEIGHT: 29px
+}
+.pnav-list {
+	MARGIN: 0px 0px 10px 9px; WIDTH: 183px
+}
+.pnav-list A {
+	DISPLAY: inline-block; FONT-WEIGHT: bold; BACKGROUND: url(../images/bg07.jpg) no-repeat; MARGIN-BOTTOM: 6px; WIDTH: 21px; LINE-HEIGHT: 21px; FONT-FAMILY: Arial; HEIGHT: 21px; TEXT-ALIGN: center
+}
+.pnav-list A {
+	COLOR: #69696a
+}
+.pnav-list A:visited {
+	COLOR: #69696a
+}
+.pnav-cnt {
+	BACKGROUND: url(../images/bg11.png) repeat-y; MARGIN: 0px 0px 10px 10px; WIDTH: 182px; margin:20px auto; BORDER-BOTTOM: #dcdddd 1px solid
+}
+.pnav-box {
+	BACKGROUND: url(../images/bg08.jpg) no-repeat
+}
+.box-title {
+	PADDING-LEFT: 7px; LINE-HEIGHT: 32px; HEIGHT: 32px
+}
+.box-title .btn-unfold {
+	MARGIN-TOP: 10px
+}
+.box-title .btn-fold {
+	MARGIN-TOP: 10px
+}
+.pnav-letter {
+	FONT-WEIGHT: bold; FONT-SIZE: 20px; COLOR: #c00; FONT-FAMILY: Arial
+}
+.btn-unfold {
+	BACKGROUND: url(../images/bg10.png) no-repeat; FLOAT: left; WIDTH: 13px; MARGIN-RIGHT: 5px; HEIGHT: 13px
+}
+.btn-fold {
+	BACKGROUND: url(../images/bg09.png) no-repeat; FLOAT: left; WIDTH: 13px; MARGIN-RIGHT: 5px; HEIGHT: 13px
+}
+.box-list {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
+}
+.box-list LI {
+	PADDING-LEFT: 23px; LINE-HEIGHT: 25px
+}
+.box-list LI .btn-unfold {
+	MARGIN-TOP: 5px
+}
+.box-list LI .btn-fold {
+	MARGIN-TOP: 5px
+}
+.box-list H2 {
+	COLOR: #1e50a2
+}
+.box-list H2 A {
+	COLOR: #1e50a2
+}
+.box-list H2 A:visited {
+	COLOR: #1e50a2
+}
+.box-list .off {
+	COLOR: #727171
+}
+.box-list .off:visited {
+	COLOR: #727171
+}
+

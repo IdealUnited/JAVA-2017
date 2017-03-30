@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="admin">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="inf-manager-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-manager/inf-manager">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-security-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-security/inf-security">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-validateCode-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-validateCode/inf-validateCode">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-util-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-util/inf-util">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-poss-client-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-poss-client/inf-poss-client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-hessian-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-hessian/inf-hessian">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-framework-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-framework/inf-framework">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="inf-file-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-file/inf-file">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/exp-war/target/classes"/>
+        <property name="context-root" value="admin"/>
+    </wb-module>
+</project-modules>

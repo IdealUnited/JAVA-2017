@@ -1,0 +1,341 @@
+
+#111 {}
+<!-- 增删改商品需要的样式 -->
+#AddWare { width:576px; height:330px; }
+
+#AddWareInfo { width:240px; height:330px; }
+
+#AddWareMode { width:300px; height:300px; margin-top:15px; }
+
+#AddWareIntro { width:230px; height:200px; text-align:center; }
+
+#AddModeDIV { width:330px; height:330px; }
+
+
+<!--管理员页面-->
+
+#111 {}
+a.admin{ color:#FFF;}
+a.admin:hover{ color:#33FFFF;}
+
+#newsbody { width:500px; margin:15 0 0 0; text-align:left; }
+
+#PaginationList { padding:5 5 5 5; }
+
+#Pagination { width:99%; height:20px; }
+
+#AdminTop { margin-top:8px; width:778px; height:25px;}
+
+#AdminTopList { padding:5 10 5 10; height:100%; margin-left:5px; background-color:#866655; color:#FFFFFF; }
+
+#AdminTopList_Add { padding:5 10 5 10; height:100%; margin-left:5px; background-color:#006699; color:#FFFFFF; }
+
+#InfoAll { width:778px; margin-top:10px; }
+
+#InfoList { width:99%; height:30px; }
+
+#TitleList { width:75%; height:30px; text-align:left; padding:11 0 11 10; }
+
+#DateList { width:9%; height:30px; padding:11 0 11 0; }
+
+#HandleList { width:15%; height:30px; padding:6 0 5 0; }
+
+<!--填写用户信息时页面 其中有reg,updateCoInfo等页面-->
+
+#regtop { width:790px; height:30px; }
+
+#updatetop { width:100%; height:30px; }
+
+.title { height:35px; }
+
+#regleft { width:250px; text-align:right; PADDING-TOP: 3px; }
+
+#updateleft { width:150px; text-align:right; PADDING-TOP: 3px; }
+
+#regcennet { width:190px; text-align:center; }
+
+#updatepagebody { width:100%; }
+
+#updateright { width:220px; text-align:left; }
+
+#regright { width:300px; text-align:left; }
+
+<!-- 用户管理界面 -->
+#UserInfoTitle { width:100%; text-align:center; margin-top:8px;  }
+
+#UserHandleTitle { width:100%; text-align:center; margin-top:10px; }
+
+#WareAll { width:570px; }
+
+#Pagination { width:570px; height:30px; margin-left:0px; }
+
+#PagList { width:30px; height:30px; }
+
+#WarePhoto { width:180px; height:160px; }
+
+#ModeWareInfo { width:370px; height:170px; }
+
+#PrintPathDIV { width:360px; float:none; margin-left:0px; }
+
+#UserHandle { width:100%; }
+
+a.jan:hover { display: block; background-color:#eef5f4; }
+a.jan:active { display: block; background-color:#FFFF66; }
+
+#UserInfo { width:100%; font-size:12px; padding-top:10px; overflow:hidden; text-overflow:ellipsis }
+
+#Handle { width:180px; height:35px; }
+
+#WareInfo { width:190px; }
+
+#WareIntro { width:230px; height:180px; }
+
+.top16 { margin-top:16px; }
+
+#ManageBody { width:790px;  margin-top:0px; }
+
+#ManageLeft { width:150px; }
+
+#ManageRight { width:628px; margin-left:8px; margin-top:6px; }
+
+#ModeDIV { width:180px; height:180px; }
+
+#WareMode { width:150px; height:150px; }
+
+#WareDIV { width:190px; margin-top:8px; }
+
+
+<!--设置该div和上面一个div的距离为8个象素,宽度为790个象素-->
+
+#111{}
+
+.StencilName { text-align:left; font:"黑体"; font-size:14px; padding:4 0 0 20 }
+
+#showdate { width:80px; height:20px; text-align:center; padding:8 0 0 0; }
+
+#date { width:88px; height:20px; padding:8 0 0 0;}
+
+#more { width:410px;}
+
+#NewsTitle { width:320px; text-align:left; height:20px; padding:8 0 0 0; }
+
+#newsListInfo { width:410px; height:20px; }
+
+#NewsInfo { width:414px; }
+
+#newsphoto { width:320px; height:20px;}
+
+#query {margin-top:8px; width:790px;}
+
+#pageright{width:596px; margin-left:8px;}
+
+#pageleft{width:180px;}
+
+#pagebody { width:786px; margin-top:0px;}
+
+#footer { margin-top:8px; width:784px; height:45px;}
+
+#copyright { width:580px; height:90px;}
+
+#amigoLink { width:784px; height:60px; margin-top:8px; text-align:center; }
+
+#amigoLink2 { height:45px; }
+
+#amigoLinkList { width:90px; height:45px; margin:0 5 0 5; }
+
+#newProduct { width:594px; height:180px; margin-top:8px; margin-left:8px;}
+
+#affiche { width:166px; height:204px; margin-left:8px; background-color:#DDFBF4; }
+
+#afficheTitle { width:166px; height:20px }
+
+#afficheContent { width:166px; height:180px; text-align:center }
+
+#hotspotProduct { width:594px; height:180px; margin-top:8px; margin-left:8px; background-color:#EBDCE3; }
+
+#ProductTitleTop { width:380px; height:20px; text-align:left; }
+
+#ProductTitleList { width:380px; height:20px; text-align:left; padding:8 0 0 0; }
+
+#WareUserName { width:120px; height:20px; padding:8 0 0 0; }
+
+#callingNews { width:418px; height:204px; background-color:#DDFBF4; }
+
+#newCorporation { overflow:hidden; width:180px; height:140px; background-color:#E4F3F2; background-color:#F7F5D9 }
+
+#hotspotCorporation { overflow:hidden; width:180px; height:300px; margin-top:8px; background-color:#F7F5D9; }
+
+#pagebody_one { margin-top:8px; width:180px;}
+
+#pagebody_two { margin-top:8px; width:300px;}
+
+<!--text-align:right设置该对象内的所有子对象为居右-->
+#pagebody_three { margin-top:8px; text-align:right; width:800px; margin-right:0; }
+
+.Container { width:800; height:auto; text-align:center; font:12px 宋体;}
+
+#logo { width:200px; text-align:center; height:90px;}
+
+#Header { margin-top:10px; width:790px; height:90px;}
+
+.left { FLOAT: left;}
+
+.top8 { margin-top:3px;}
+
+.right { float:right;}
+
+.none { float:none;}
+
+#banner { width:474px; height:90px;}
+
+#callingsort { height:25px; width:786px; margin-top:3px; }
+
+.callingList { height:25px; width:75px; text-align:center; }
+
+#search { text-align:left; width:786px; margin-top:3px; }
+
+#contactme { width:110px; height:90px;}
+
+#pathclew { width:786px; height:25px; }
+
+.center { MARGIN-LEFT: auto; MARGIN-RIGHT: auto }
+
+.list {}
+
+.list LI { CLEAR: both; PADDING-RIGHT: 0px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; PADDING-TOP: 5px; LIST-STYLE-TYPE: none; TEXT-ALIGN: left}
+
+.list1 LI {	PADDING-BOTTOM: 5px;
+			PADDING-TOP: 0px;
+			line-height: 30px;
+			font-size:14px; }
+
+.caption { width:120px; height:25px;}
+
+
+
+<!--  设置body中从数据库中读取出的栏目样式  -->
+
+#leftBodyTop { width:180px; }
+
+
+
+
+
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-SIZE: 12px; BACKGROUND: #fff; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #000; PADDING-TOP: 0px; FONT-FAMILY: "宋体","arial"; text-align:center;
+}
+
+
+INPUT {
+	BORDER-RIGHT: #a3bfa8 1px solid; BORDER-TOP: #a3bfa8 1px solid; BORDER-LEFT: #a3bfa8 1px solid; BORDER-BOTTOM: #a3bfa8 1px solid; BACKGROUND-COLOR: #fff;
+}
+
+.sel {
+	BORDER-RIGHT: #a3bfa8 1px solid; BORDER-TOP: #a3bfa8 1px solid; BORDER-LEFT: #a3bfa8 1px solid; BORDER-BOTTOM: #a3bfa8 1px solid; BACKGROUND-COLOR: #fff; width:100px;
+}
+
+textarea {
+	BORDER-RIGHT: #a3bfa8 1px solid; BORDER-TOP: #a3bfa8 1px solid; BORDER-LEFT: #a3bfa8 1px solid; BORDER-BOTTOM: #a3bfa8 1px solid; BACKGROUND-COLOR: #fff; scrollbar-highlight-color:#B8DEC4;scrollbar-face-color:#B8DEC4; scrollbar-arrow-color:#9E5F25;
+}
+
+
+.clear {
+	CLEAR: both
+}
+.main {
+	BORDER-RIGHT:#cbdedc 1px solid;
+	BORDER-TOP:#cbdedc 1px solid;
+	BORDER-LEFT:#cbdedc 1px solid;
+	BORDER-BOTTOM:#cbdedc 1px solid;
+	BACKGROUND-COLOR:#fff
+
+}
+.main_title_green {
+	BACKGROUND: #eef5f4; 
+	LINE-HEIGHT: 28px; 
+	BORDER-TOP: #cbdedc 1px solid; 
+	BORDER-LEFT: #cbdedc 1px solid; 
+	BORDER-TOP: #cbdedc 1px solid; 
+	BORDER-RIGHT: #cbdedc 1px solid; 
+	HEIGHT: 25px; 
+	TEXT-ALIGN: left;
+}
+TABLE {
+	FONT-SIZE: 12px
+}
+A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.wi {
+	COLOR: #ffffff
+}
+.1 {
+	FONT-SIZE: 12px; COLOR: #000000; TEXT-DECORATION: none
+}
+.pt14 {
+	FONT-WEIGHT: normal; FONT-SIZE: 14px; LINE-HEIGHT: 25px; FONT-FAMILY: "宋体"; WHITE-SPACE: pre
+}
+A:hover {
+	TEXT-DECORATION: none
+}
+.table-h {
+	BORDER-RIGHT: #d1d1d1 1px solid; BORDER-TOP: #d1d1d1 1px solid; BORDER-LEFT: #d1d1d1 1px solid; BORDER-BOTTOM: #d1d1d1 1px solid
+}
+.xbt-20 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+.9p-20 {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #2ba21b; TEXT-DECORATION: none
+}
+A.bb {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+A.bb:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.tb {
+	BORDER-RIGHT: #000000 1px solid; BORDER-TOP: #000000 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #000000 1px solid; COLOR: #000000; LINE-HEIGHT: 20px; BORDER-BOTTOM: #000000 1px solid; TEXT-DECORATION: none
+}
+.tab-h {
+	BORDER-RIGHT: #666666 1px dotted; BORDER-TOP: #666666 1px dotted; BORDER-LEFT: #666666 1px dotted; BORDER-BOTTOM: #666666 1px dotted
+}
+.pt14-20 {
+	FONT-SIZE: 14px; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+.table-l {
+	BORDER-RIGHT: #89bfe1 1px solid; BORDER-TOP: #89bfe1 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #89bfe1 1px solid; LINE-HEIGHT: 20px; BORDER-BOTTOM: #89bfe1 1px solid; TEXT-DECORATION: none
+}
+.xlk {
+	BORDER-RIGHT: #a5cced 1px solid; BORDER-TOP: #a5cced 1px solid; BORDER-LEFT: #a5cced 1px solid; WIDTH: 180px; BORDER-BOTTOM: #a5cced 1px solid
+}
+.xlk-1 {
+	BORDER-RIGHT: #a5cced 1px solid; BORDER-TOP: #a5cced 1px solid; BORDER-LEFT: #a5cced 1px solid; WIDTH: 160px; BORDER-BOTTOM: #a5cced 1px solid
+}
+.9p-21 {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 20px; TEXT-DECORATION: none
+}
+A {
+	COLOR: #061969; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #2ba21b; TEXT-DECORATION: none
+}
+A.bb {
+	COLOR: #061969; TEXT-DECORATION: none
+}
+A.bb:hover {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+.8p {
+	FONT-SIZE: 9pt; LINE-HEIGHT: 15px; TEXT-DECORATION: none
+}
+form { margin-top:3px; margin-bottom:3px; }
+
+marquee { width:120px;}

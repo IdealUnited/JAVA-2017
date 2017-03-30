@@ -1,0 +1,425 @@
+/* CSS Document */
+
+/* 为页面主体确定基本字体、大小、行间距 */
+/* 在这种情况下，每个中文可按13.5单位计算，可作为设计表格宽度的依据 */
+body {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+    line-height:120%
+}
+
+/* 为表格确定基本字体、大小 */
+table {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 为表格单元确定基本字体、大小 */
+td {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 为<div>标记确定基本字体、大小 */
+div {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 为input表单域确定基本字体、大小 */
+input {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 为下拉式列表框确定基本字体、大小 */
+select {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 为多行文本框确定基本字体、大小 */
+textarea {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+}
+
+/* 显示多行文本框的边线 */
+/* textarea.testarea01 {
+  font-size: 12px; 
+  vertical-align: top; 
+  border: #000084; 
+  border-style: solid; 
+  border-width: 1px;
+} */
+
+textarea.testarea01 {
+  font-size: 12px; 
+  vertical-align: top; 
+}
+
+textarea.text04 {font-size: 12px; background-color: #D1DEE6 }
+
+select.sl01 { font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px; background-color: #D1DEE6 }
+	
+/* 只显示文本框的四周边线等 */
+input.text01 {  height: 16px; width: auto; border: #000084; border-width: 1px; font-size: 12px}
+
+/* 只显示文本框的底线 */
+input.text02 {font-size: 12px; border: #000084 solid; border-width: 0px 0px 1px}  
+
+/* 正常文本框 */
+input.text03 {font-size: 12px; background-color: #E4F2F9;}  
+
+/* 不显示文本框的边线 */
+/* input.text03 {font-size: 12px; border-width: 0px 0px 0px}  */
+input.text04 {font-size: 12px; background-color: #D1DEE6 }
+/*Li Ang add on 08/20*/
+input.text05 {font-size: 12px; color: #0000CE; background-color: #C2D9D9;  border: #000084 solid; border-width: 0px 0px 1px }
+/*用于数据录入时,下拉列表框是深色的*/
+select.selectdark {background-color: #D1DEE6 }
+/*用于数据录入时,textarea框是深色的*/
+textarea.testareadark {background-color: #D1DEE6 }
+/*LiAng add end*/
+
+/* 未访问链接文本的前景色，链接文本没有下划线 */
+a.s01:link {  color: #0000CE; text-decoration: none}
+
+/* 已访问链接文本的前景色，链接文本没有下划线 */
+a.s01:visited {  color: #0000CE; text-decoration: none}
+
+/* 鼠标在链接上滑动时，链接文本的背景色 */
+a.s01:hover {  color: #FF3333; text-decoration: underline}
+
+/* 未访问链接文本的前景色，链接文本没有下划线 */
+a.s02:link {  color: #0000CE; text-decoration: none}
+
+/* 已访问链接文本的前景色，链接文本没有下划线 */
+a.s02:visited {  color: #0000CE; text-decoration: none}
+
+/* 鼠标在链接上滑动时，链接文本的背景色 */
+a.s02:hover {  color: #006600; text-decoration: underline}
+
+/*LiAng add on 08/19 */
+/* 未访问链接文本的前景色，链接文本没有下划线 */
+a.s03:link {  color: #333333; text-decoration: none}
+
+/* 已访问链接文本的前景色，链接文本没有下划线 */
+a.s03:visited {  color: #333333; text-decoration: none}
+/*LiAng add end*/
+
+/*LiAng add on 08/22 */
+/* 未访问链接文本的前景色，链接文本没有下划线 .用于PubInfo_ScrollPage.jsp*/
+a.s04:link {  color: #676767; text-decoration: none}
+
+/* 已访问链接文本的前景色，链接文本没有下划线 */
+a.s04:visited {  color: #676767; text-decoration: none}
+
+/* 鼠标在链接上滑动时，链接文本的背景色 */
+a.s04:hover {  color: #FF3333; text-decoration: underline}
+/*LiAng add end*/
+
+/* 设置文本行间距 */
+.s00 {
+    font-family: "宋体", "仿宋_GB2312", "Arial";
+    font-size: 12px;
+    line-height:140%;
+}
+
+/* 为表格行设置背景色 */
+.trbgcolor1 {background-color: #FBAD44}
+.trbgcolor2 {background-color: #FFF8E1}
+.trbgcolor3 {background-color: #CCFFFF}
+/* 新添加的表格背景色*/
+.trbgcolor4 {background-color: #D2C6C8; border: #000084 solid; border-width: 1px 1px 0px 0px;}
+.trbgcolor5 {background-color: #D1DEE6; border: #000084 solid; border-width: 1px 1px 0px 0px;}
+.trbgcolor6 {background-color: #FFFFFF}
+.trbgcolor7 {background-color: #4681AC}
+
+/* Compass add */
+/* 表格交替颜色 */
+.trbgcolor10 {background-color: #E4F2F9}
+.trbgcolor11 {background-color: #CCE5F3}
+/* Compass add end */
+
+ 
+/* 表格边框风格 */
+/* 风格1 */
+.border_bottom1 {border: #009900 solid; border-width: 0px 0px 2px 0px}
+.border_right1 {border: #009900 solid; border-width: 0px 1px 0px 0px}
+.border_bottom_right1 {border: #009900 solid; border-width: 0px 1px 2px 0px}
+.border_top_bottom1 {border: #009900 solid; border-width: 2px 0px 1px 0px}
+.border_top_bottom_right1 {border: #009900 solid; border-width: 2px 1px 1px 0px}
+
+/* 风格2 */
+.border_all2 {border: #8F93A7; border-style: double; border-top-width: auto; border-right-width: auto; border-bottom-width: auto; border-left-width: auto}
+.border_all200 {color: #FFFFFF;width:600;background-color: #4681AC;border: #8F93A7; border-style: double; border-top-width: auto; border-right-width: auto; border-bottom-width: auto; border-left-width: auto}
+.border_top_right2 {border: #000084 solid; border-width: 1px 1px 0px 0px; background-color: #FFF8E1}
+.border_top_right3 {border: #000084 solid; border-width: 1px 1px 0px 0px; background-color: #FFFFFF}
+.border_top2 {border: #000084; border-style: solid; border-width: 1px 0px 0px 0px}
+.border_right2 {border: #000084; border-style: solid; border-width: 0px 1px 0px 0px}
+.border_right3 {border: #000084; border-style: solid; border-width: 0px 1px 0px 0px; color: #FFFFFF}
+/*用于座席表格标题背景色*/
+.border_right4 {border: #000084; border-style: solid; border-width: 0px 1px 0px 0px;}
+/*用于弹屏标题背景色*/
+.border_right5 {border: #E4F2F9; border-style: solid; border-width: 0px 1px 0px 0px;}
+
+
+/* 风格3 */
+.border_all3 {border: #339933; border-style: solid; border-width: 1px 0px 1px}
+/*LiAng add on 08.19*/
+.border_top_right3 {border: #8F93A7 solid; border-width: 1px 1px 0px 0px; background-color: #FFFFFF}
+.border_top_right4 {border: #8F93A7 solid; border-width: 1px 1px 0px 0px; }
+ 
+/*LiAng*/
+
+/*LiAng add on 8/19*/
+/* 风格4 */
+.border_all4 {border: #FFFFFF; border-style: solid; border-width: 0px 0px 0px}
+.bgstyle {border: #000084 solid; border-width: 1px 1px 0px 0px; background-color: #567CC5; color: #FFFFFF}
+
+/*LiAng add end*/
+
+/*LiAng add on 8/21*/
+/*frameset slide border*/
+.frameBorder {  border-color: #96A7B1 #96A7B1 #96A7B1; border-style: solid; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 8px; border-left-width: 0px}
+/*LiAng add end*/
+
+div.class1 {
+  background-color: #CCFFFF; 
+}
+
+/* 只显示文本框的底线，并置该文本框的背景 */
+input.text12 {
+  font-size: 12px; 
+  color: #0000CE;
+  background-color: #CCFFFF;
+  border: #000084 solid; 
+  border-width: 0px 0px 1px
+}
+
+/* Compass add */
+
+h1{
+font-size:24px;
+margin: 0px;
+}
+
+/* 标题文字 */
+.titletext{
+        font-size:20px;
+        margin: 0px;
+        font-weight: bold;
+	color:#05006C
+}
+
+/* 表格文字标题 */
+.tbheadertext{
+	color: #FFFFFF
+}
+/* 表格文字内容 */
+.tbtext{
+	color: #333333
+}
+
+/* 导航条风格 */
+.Navborder_all {border: #8F93A7; border-style: solid; border-width: 1px 0px 1px}
+.bgstyle {border: #000084 solid; border-width: 1px 1px 0px 0px; background-color: #567CC5; color: #FFFFFF}
+
+
+select.selectthin {background-color: #E4F2F9 }
+select.selectthick {background-color: #CCE5F3 }
+
+input.textthin {font-size: 12px; background-color: #E4F2F9;}  
+input.textthick {font-size: 12px; background-color: #CCE5F3;}  
+
+checkbox.thin {background-color: #E4F2F9;}  
+checkbox.thick {background-color: #CCE5F3;}  
+
+radio.thin {background-color: #E4F2F9;}  
+radio.thick {background-color: #CCE5F3;}
+
+textarea.textareathin {background-color: #E4F2F9 }
+textarea.textareathick {background-color: #CCE5F3 }
+/* Compass add end */
+
+/* 业务界面输入框 */
+.textopr{
+	background-color: #E1E5F6;
+	height: 18px;
+	width: 185px;
+	border: 1px solid #6460AA;
+
+}
+.selectopr{background-color: #E1E5F6;
+	height: 18px;
+	width: 185px;
+	border: 1px solid #6460AA;
+}
+
+/*用于业务界面的查询条件界面获取密码等按钮*/
+.bb1{
+	background-color: #F5D9B1;
+	height: 18px;
+	width: 80px;
+	color: #FF6600;
+	border: 1px solid #F0957A;
+}
+/*用于业务界面的交易结果按钮*/
+.bb2{
+	background-color: #CEF1FF;
+	height: 18px;
+	width: 80px;
+	color: #0061AF;
+	border: 1px solid #4681AC;
+}
+.selectasd{
+	background-color: #F5D9B1;
+	color: #FF6600;
+	border: 1px solid #F0957A;
+}
+
+/* 本次浦发银行所使用的CSS */
+
+/* 表格中的标题行（第一行）*/
+.trbgcolorForTitle {background-color: #2C5FB4}
+
+.tdForTitle {
+	font-family: "宋体", "Arial";
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+/* 表格中的内容交替显示*/
+.trForContent1 {
+	font-family: "宋体", "Arial";
+	font-size: 12px;
+	color: #000000;
+	line-height: 25px;
+	background-color:DDF0FE;
+}
+.trForContent2 {
+	font-family: "宋体", "Arial";
+	font-size: 12px;
+	color: #000000;
+	line-height: 25px;
+	background-color:F3FAFF;
+}
+//版权信息风格
+.low {
+	FONT-SIZE: 9pt;
+	line-height: 150%;
+	color: #ffffff;
+	font-family: "Verdana";
+}
+
+
+
+.odd {text-align:center;background-color: #E4F2F9;color: #000000;}
+.even {text-align:center;background-color: #CCE5F3;color: #000000;}
+.border_all10 {border: #8F93A7;color: #FFFFFF; border-style: double; border-top-width: auto; border-right-width: auto; border-bottom-width: auto; border-left-width: auto}
+th.sortable a {
+	color: #FFFFFF;
+}
+}
+.button2 {
+   font-size: 12px; 
+   color: #224f6e;  
+   text-decoration: none;
+   background-image: url(../images/bt-2.jpg);
+   width: 56px;
+   height: 15px;
+   border: 0px solid;
+   margin-top: 0px; 
+   margin-right: 0px; 
+   margin-bottom: 0px; 
+   margin-left: 0px; 
+   padding-top: 0px; 
+   padding-right: 0px; 
+   padding-bottom: 2px; 
+   padding-left: 1px;
+   font-family: "宋体", "Verdana", "Arial", "Helvetica", "sans-serif";
+   cursor: hand;
+}
+.button4 {
+   font-size: 12px; 
+   color: #224f6e;   
+   text-decoration: none;
+   background-image: url(../images/bt-4.gif);
+   width: 112px;
+   height: 15px;
+   border: 0px solid;
+   margin-top: 0px; 
+   margin-right: 0px; 
+   margin-bottom: 0px; 
+   margin-left: 0px; 
+   padding-top: 0px; 
+   padding-right: 0px; 
+   padding-bottom: 0px; 
+   padding-left: 1px;
+   font-family: "宋体", "Verdana", "Arial", "Helvetica", "sans-serif";
+   cursor: hand;
+}
+.button6 {
+   font-size: 12px; 
+   color: #224f6e;   
+   text-decoration: none;
+   background-image: url(../images/bt-6.gif);
+   width: 168px;
+   height: 15px;
+   border: 0px solid;
+   margin-top: 0px; 
+   margin-right: 0px; 
+   margin-bottom: 0px; 
+   margin-left: 0px; 
+   padding-top: 0px; 
+   padding-right: 0px; 
+   padding-bottom: 0px; 
+   padding-left: 1px;
+   font-family: "宋体", "Verdana", "Arial", "Helvetica", "sans-serif";
+   cursor: hand;
+}
+.inputTable {border: #8F93A7; border-style: double; border-top-width: auto; border-right-width: auto; border-bottom-width: auto; border-left-width: auto}
+.inputTable tr	{background-color: #E4F2F9}
+.inputTable th {
+	font-weight:  normal; 
+	text-align: right;
+	border: #8F93A7 solid; 
+	border-width: 1px 1px 0px 0px;
+}
+.inputTable td{
+	text-align: left;
+	border: #8F93A7 solid; 
+	border-width: 1px 1px 0px 0px;
+}
+.must{
+	color:red;
+}
+
+.winbd03{ 
+				border: 1px solid #BEBEBE;
+				border-top-width: 0px; 
+				border-right-width: 0px; 
+				order-bottom-width: 1px; 
+				border-left-width: 1px; 
+				line-height:20px;
+				background-color:#FCFCFC;
+				text-align:center;}
+.winbd04{ 
+				border: 1px solid #BEBEBE;
+				border-top-width: 0px; 
+				border-right-width: 0px; 
+				order-bottom-width: 1px; 
+				border-left-width: 1px; 
+				line-height:20px;
+				background-color:#E0E0E0;
+				text-align:center;}				 
+.winbd02{ border: 1px solid #272727;
+				border-top-width: 1px; 
+				border-right-width: 0px; 
+				border-bottom-width: 0px; 
+				border-left-width: 	1px; 
+				background-color:#A5A552;
+				text-align:center;
+				line-height:25px;}

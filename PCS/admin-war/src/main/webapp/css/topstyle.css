@@ -1,0 +1,70 @@
+.topbg-no {
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: left top;
+}
+.input1 {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 14px;
+	color: #000000;
+	background-color: #ECF2F8;
+	text-align: left;
+	text-indent: 2px;
+	border-top: 1px solid #7F9DB9;
+	border-right: 1px solid #7F9DB9;
+	border-bottom: 1px solid #7F9DB9;
+	border-left: 1px solid #7F9DB9;
+	SCROLLBAR-FACE-COLOR: #6F0000;
+	SCROLLBAR-HIGHLIGHT-COLOR: #8C0000;
+	SCROLLBAR-SHADOW-COLOR: #943405;
+	SCROLLBAR-3DLIGHT-COLOR: #943405;
+	SCROLLBAR-ARROW-COLOR: #FF7A04;
+	SCROLLBAR-TRACK-COLOR: #943405;
+	SCROLLBAR-DARKSHADOW-COLOR: #8C0000;
+	color: #333333;
+}
+.button1 {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 14px;
+	color: #333333;
+	background-color: #CCCCCC;
+	height: 18px;
+	border: 1px outset #996600;
+	padding: 2px;
+}.xinxi {
+	font-family: "ËÎÌו";
+	font-size: 12px;
+	line-height: 20px;
+	color: #05315C;
+}
+.clock {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.topbg-x {
+	background-repeat: repeat-x;
+	background-position: center top;
+}
+.zilao {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+.ziliao2 {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #D4EAFF;
+}
+.topbgx-b {
+	background-repeat: repeat-x;
+	background-position: bottom;
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="accessLog">
+	<typeAlias alias="accessLog" type="com.idealunited.poss.security.model.AccessLog" />
+
+	<insert id="create" parameterClass="accessLog">
+		insert into ACCESS_LOG
+		(LOGIN_USER, USER_IP, CREATION_DATE, ACTION_URL, URL_METHOD
+		<isNotEmpty property="postParams">
+			,POST_PARAMS
+		</isNotEmpty>
+		)
+		values (#loginUser#, #userIp#,#creationDate#, #actionUrl#, #urlMethod#
+		<isNotEmpty property="postParams">
+			,#postParams,javaType=java.lang.String,jdbcType=CLOB#
+		</isNotEmpty>
+		)
+	</insert>
+
+	<select id="search" resultClass="accessLog">
+		select t.sequence_id sequcenceId,
+		t.login_user loginUser,
+		t.user_ip userIp,
+		t.creation_date creationDate,
+		t.action_url actionUrl,
+		t.url_method urlMethod
+		from access_log t
+		where 1=1
+		<isNotEmpty property="loginUser">
+			and t.login_user = #loginUser#
+		</isNotEmpty>
+		<isNotEmpty property="userIp">
+			and t.user_ip = #userIp#
+		</isNotEmpty>
+		<isNotEmpty property="urlMethod">
+			and t.url_method = #urlMethod#
+		</isNotEmpty>
+		<isNotEmpty property="actionUrl">
+			and t.action_url = #actionUrl#
+		</isNotEmpty>
+		<isNotNull property="limitClauseStart">
+	        limit $limitClauseStart$,$limitClauseCount$
+	    </isNotNull>
+	</select>
+
+	<select id="search_COUNT" resultClass="java.lang.Integer">
+		select count(*) as cnt from access_log t where 1=1
+		<isNotEmpty property="loginUser">
+			and t.login_user = #loginUser#
+		</isNotEmpty>
+		<isNotEmpty property="userIp">
+			and t.user_ip = #userIp#
+		</isNotEmpty>
+		<isNotEmpty property="urlMethod">
+			and t.url_method = #urlMethod#
+		</isNotEmpty>
+		<isNotEmpty property="actionUrl">
+			and t.action_url = #actionUrl#
+		</isNotEmpty>
+	</select>
+
+</sqlMap>

@@ -1,0 +1,75 @@
+body { 
+    margin:0px;
+    padding:0px 0px 0px 7px;
+    font-family: Arial,"宋体", Helvetica, sans-serif;
+	background:url(../images/jqueryMenu/bg.gif) repeat-x ;
+}
+
+.left_common, .left_bottom{
+    width:197px;
+	margin:0px;
+	padding:0px;	
+	border-left:1px solid #2fa1c6;	
+	background:url(../images/jqueryMenu/left_menu_li.gif) repeat-y;
+	list-style:none;
+	clear:both;
+	
+}
+
+
+.left_title li, .left_common li{
+	font-size:12px;
+	margin:0px;
+	
+}
+
+
+.left_bottom li.bottom{
+	border-bottom:1px solid #2fa1c6;
+	width:192px;
+	height:10px;
+	
+}
+.left_title{
+	width:197px;
+	margin:0px;
+	padding:12px 0px 0px 0px;
+	height:28px;	
+	border-left:1px solid #2fa1c6;
+	background:url(../images/jqueryMenu/left_menu_top_1.gif) no-repeat;	
+	list-style:none;
+	clear:both;
+	cursor:pointer;
+	
+}
+
+
+.left_title li.title{
+    float:left;
+	padding:3px 0px 0px 35px;
+	width:152px;
+	height:22px;
+	
+}
+
+.left_common li.noselect{
+    width:167px;
+	cursor:pointer;
+	height:18px;
+	padding:5px 0px 0px 30px;
+}
+
+
+.left_common .select{
+    padding:5px 0px 0px 30px;
+    width:167px;
+	cursor:pointer;
+	height:18px;
+	background:url(../images/jqueryMenu/left_menu_select.gif) repeat-y;
+
+}
+.hide{
+    display:none;
+
+
+}

@@ -1,0 +1,46 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>root-pom</artifactId>
+		<groupId>com.idealunited.commons</groupId>
+		<version>0.0.1</version>
+	</parent>
+	<groupId>com.idealunited.commons</groupId>
+	<artifactId>inf-validateCode</artifactId>
+	<version>0.0.1</version>
+	<name>validateCode</name>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<com.lorypay.app.controller.validate.ValidateCodeController.actionFlg>0</com.lorypay.app.controller.validate.ValidateCodeController.actionFlg>
+			</properties>
+		</profile>
+		<profile>
+			<id>prod</id>
+			<properties>
+				<com.lorypay.app.controller.validate.ValidateCodeController.actionFlg>1</com.lorypay.app.controller.validate.ValidateCodeController.actionFlg>
+			</properties>
+		</profile>
+	</profiles>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+	</build>
+</project>

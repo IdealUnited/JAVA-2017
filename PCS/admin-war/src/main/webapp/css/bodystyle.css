@@ -1,0 +1,102 @@
+.titlemenu {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #000000;
+}
+.tabletitle {
+	font-family: "宋体";
+	font-size: 13px;
+	line-height: 20px;
+	color: #003366;
+	background-image: url(../images/tabletitlebg.gif);
+	background-repeat: repeat-x;
+	background-position: left top;
+}
+
+.tdtext {
+	font-family: "宋体";
+	font-size: 13px;
+	line-height: 20px;
+	color: #003366;
+	background-color: #ECF2F8;
+}
+.tr-3{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #252525;
+	background-color: #ECF2F8;
+	}
+	
+.tr-1{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #252525;
+	background-color: #ECF2F8;
+}
+.tdtext2 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #252525;
+	background-color: #F9FBFE;
+}
+
+.tr-2{
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #252525;
+	background-color: #F9FBFE;
+}
+.input1 {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 14px;
+	color: #000000;
+	background-color: #ffffff;
+	text-align: left;
+	text-indent: 2px;
+	border-top: 1px solid #7F9DB9;
+	border-right: 1px solid #7F9DB9;
+	border-bottom: 1px solid #7F9DB9;
+	border-left: 1px solid #7F9DB9;
+	SCROLLBAR-FACE-COLOR: #b9daff;
+	SCROLLBAR-HIGHLIGHT-COLOR: #b9daff;
+	SCROLLBAR-SHADOW-COLOR: #b9daff;
+	SCROLLBAR-3DLIGHT-COLOR: #7F9DB9;
+	SCROLLBAR-ARROW-COLOR: #ffffff;
+	SCROLLBAR-TRACK-COLOR: #d9ebff;
+	SCROLLBAR-DARKSHADOW-COLOR: #7F9DB9;
+	color: #333333;
+}
+.button1 {
+	font-family: "??";
+	font-size: 12px;
+	line-height: 14px;
+	color: #003366;
+	background-color: #A6CFF9;
+	height: 18px;
+	border: 1px outset #498ED3;
+	padding: 2px;
+}
+.text12-blue {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #003366;
+}
+.text12 {
+	font-family: "宋体";
+	font-size: 12px;
+	line-height: 20px;
+	color: #333333;
+}
+.red-No {
+	font-family: "宋体";
+	font-size: 12px;
+	font-weight: bold;
+	color: #993300;
+}

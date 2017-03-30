@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>root-pom</artifactId>
+		<groupId>com.idealunited.commons</groupId>
+		<version>0.0.1</version>
+	</parent>
+	<groupId>com.idealunited</groupId>
+	<artifactId>inf-hessian</artifactId>
+	<name>inf-hessian</name>
+	<dependencies>
+		<dependency>
+			<groupId>com.caucho</groupId>
+			<artifactId>hessian</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.idealunited</groupId>
+			<artifactId>inf-util</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+	</dependencies>
+</project>

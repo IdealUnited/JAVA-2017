@@ -1,0 +1,31 @@
+.1{}
+body { font: 70% "Trebuchet MS", sans-serif; text-align: center;}
+.head { width: 100%; }
+.left_menu { width: 200px; float: left; text-align: left; }
+.left_menu_list { height: 200px; }
+.left_menu_list li { width: 100% }
+.left_menu_list li { margin-bottom: 10px; }
+.left_menu_list a { color: #061969; text-decoration: none}
+
+.content { width: 100%; height: 600px; }
+
+.handle { margin-top: 1px; margin-left: 20px; float: left; width: auto;}
+
+.footer { width: 100%; }
+
+.border {
+	BORDER-RIGHT: #cbdedc 1px solid;
+	BORDER-TOP: #cbdedc 1px solid;
+	BORDER-LEFT: #cbdedc 1px solid;
+	BORDER-BOTTOM: #cbdedc 1px solid;
+}
+
+.handle_item { text-align: right; margin-right: 10px; }
+
+.textLeft { text-align: left; padding-left: 5px; vertical-align: middle; }
+.textRight { text-align: right; padding-right: 5px; }
+
+.dialog_link {padding: .4em 1em .4em 20px;text-decoration: none;position: relative;}
+.dialog_link span.ui-icon {margin: 0 5px 0 0;position: absolute;left: .2em;top: 50%;margin-top: -8px;}
+
+

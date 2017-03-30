@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>1.2</jsp-version>
+
+	<tag>
+		<name>page</name>
+		<tag-class>com.pay.sales.tags.PageTag</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>page对象,封装分页参数,查询结果</description>
+			<name>pageBean</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>页面调用Ajax分页方法名</description>
+			<name>methodName</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<description>分页样式</description>
+			<name>sytleName</name>
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>

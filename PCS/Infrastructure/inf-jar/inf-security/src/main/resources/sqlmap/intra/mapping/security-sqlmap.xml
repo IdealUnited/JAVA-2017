@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="security">
+
+	<select id="getUserByLoginCode" resultClass="java.util.HashMap">
+	    SELECT * FROM USERS WHERE LOGIN_ID=#value# AND STATUS=1
+	</select>
+	
+	<select id="queryRolesByLoginCode" resultClass="java.lang.String">
+	    SELECT T_R.ROLE_KY
+		  FROM (SELECT ROLE_KY, ROLE_CODE FROM ROLE WHERE STATUS = 1) T_R
+		INNER JOIN 
+			   (SELECT ROLE_KY FROM USER_ROLE
+		         	WHERE USER_KY = (SELECT USER_KY FROM USERS WHERE LOGIN_ID = #value#)  AND STATUS = 1) T_UR
+	    ON T_R.ROLE_KY = T_UR.ROLE_KY
+	</select>	
+	
+	<select id="queryResesByLoginCode" resultClass="java.lang.String">
+		SELECT distinct( url) url
+		FROM res_menu rm
+		WHERE rm.res_ky IN
+		(SELECT res_ky
+		FROM role_res r
+		WHERE r.role_ky IN (SELECT r.role_ky
+		FROM role r, user_role ur, users u
+		WHERE ur.role_ky = r.role_ky
+		AND u.user_ky = ur.user_ky
+		AND u.login_id = #loginId#)
+		AND status = 1 and length(url) > 1)
+	</select>	
+	
+	<update id="updateUserLoginInfo"  parameterClass="map" >
+		update users u set u.last_login_ip = #loginIp#, u.last_login_time = #loginTime#
+		WHERE login_id = #loginId#
+	</update>
+	
+</sqlMap>

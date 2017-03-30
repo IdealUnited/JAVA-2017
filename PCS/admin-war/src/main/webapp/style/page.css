@@ -1,0 +1,148 @@
+.first {}
+
+input { BORDER-RIGHT: #aaaaaa 1px solid;
+		BORDER-TOP: #aaaaaa 1px solid; 
+		BORDER-LEFT: #aaaaaa 1px solid; 
+		BORDER-BOTTOM: #aaaaaa 1px solid;
+		background: transparent;
+		height: 18px; }
+		
+textarea { BORDER-RIGHT: #aaaaaa 1px solid;
+		BORDER-TOP: #aaaaaa 1px solid; 
+		BORDER-LEFT: #aaaaaa 1px solid; 
+		BORDER-BOTTOM: #aaaaaa 1px solid;
+		background: transparent; }
+
+.page { width: 100%; margin-top: 10px; }
+
+.pageTotal { background-color: #eeeeee; width: 40px; }
+
+.currentlyPage { background-color: #cbdedc; widht: 28px; padding-left: 8px; padding-right: 8px; }
+
+.page div { float: left; height: 24px; padding-top: 4px; text-align: center;
+	BORDER-RIGHT:#cbdedc 1px solid; 
+	BORDER-TOP:#cbdedc 1px solid; 
+	BORDER-LEFT:#cbdedc 1px solid; 
+	BORDER-BOTTOM:#cbdedc 1px solid; }
+
+.pageList { cursor:pointer; widht:28px; padding-left:8px; padding-right:8px; }
+
+.functionFence { width: 100%; font-size: 12px; text-align: left; }
+
+.functionFenceLeft { width: 100%; font-size: 12px; text-align: left; }
+
+.resultListFence { width: 100%; font-size: 12px; margin-top: 10px; }
+
+.resultListFence td { BORDER-BOTTOM: #cbdedc 1px solid; height: 24px; }
+
+.listFence { width: 100%; height: 340px; font-size: 12px;}
+
+.textLeft { text-align: left; }
+
+.textRight { text-align: right; }
+
+.ellipsis { width:100%; overflow: hidden; text-overflow: ellipsis; }
+
+.tableHeader { height: 30px; background-color: #6699cc; color:#ffffff; text-align: center; font-weight: bold; }
+
+.ModalDialog { background-color: #ECF0FF; vertical-align: middle;}
+
+.ModalDialogTitle { height: 30px; text-align: center; font-weight: bold; font-size: 14px; letter-spacing: 3px; color: #5BAAC8;}
+
+a.red1 { color: red; text-decoration:none; }
+
+a.red1:link { color: red;} 
+
+a.red1:visited { color: red;}
+
+a.yellow1 { color: yellow; text-decoration:none; }
+
+a.yellow1:link { color: yellow;} 
+
+a.yellow1:visited { color: yellow;}
+
+a.white1 { color: white; text-decoration:none; }
+
+a.white1:link { color: white;} 
+
+a.white1:visited { color: white;}
+
+a.blue1 { color: #13C0D1; text-decoration:none; }
+
+a.blue1:link { color: #13C0D1;} 
+
+a.blue1:visited { color: #13C0D1;}
+
+.button01 { BORDER-RIGHT: #3E72A7 0px solid;
+			BORDER-TOP: #3E72A7 0px solid; 
+			FONT-SIZE: 12px; 
+			BORDER-LEFT: #3E72A7 0px solid; 
+			COLOR: #043468; 
+			BORDER-BOTTOM: #3E72A7 0px solid; 
+			WIDTH: 58px; 
+			HEIGHT: 20px; 
+			background-image: url(../images/button/btn2.jpg) }
+			
+.loginBtn { BORDER-RIGHT: #3E72A7 0px solid;
+			BORDER-TOP: #3E72A7 0px solid; 
+			FONT-SIZE: 12px; 
+			BORDER-LEFT: #3E72A7 0px solid; 
+			COLOR: #043468; 
+			BORDER-BOTTOM: #3E72A7 0px solid; 
+			WIDTH: 58px; 
+			HEIGHT: 23px; 
+			background-image: url(../images/button/loginBtn.jpg) }
+			
+.regBtn { BORDER-RIGHT: #3E72A7 0px solid;
+			BORDER-TOP: #3E72A7 0px solid; 
+			FONT-SIZE: 12px; 
+			BORDER-LEFT: #3E72A7 0px solid; 
+			COLOR: #043468; 
+			BORDER-BOTTOM: #3E72A7 0px solid; 
+			WIDTH: 58px; 
+			HEIGHT: 23px; 
+			background-image: url(../images/button/regBtn.jpg) }
+			
+.text1 { BORDER-RIGHT: #DDE1E0 1px solid;
+		BORDER-TOP: #DDE1E0 1px solid; 
+		BORDER-LEFT: #DDE1E0 1px solid; 
+		BORDER-BOTTOM: #DDE1E0 1px solid;
+		height: 22px; width:140px; background-color:white;}
+		
+.text2 { BORDER-RIGHT: #DDE1E0 1px solid;
+		BORDER-TOP: #DDE1E0 1px solid; 
+		BORDER-LEFT: #DDE1E0 1px solid; 
+		BORDER-BOTTOM: #DDE1E0 1px solid; 
+		height: 22px; width:120px; background-color:#F0FBFD }
+
+
+.scrollbar1 {
+		SCROLLBAR-FACE-COLOR: #F0FBFD; 
+		SCROLLBAR-HIGHLIGHT-COLOR: #F0FBFD; 
+		SCROLLBAR-SHADOW-COLOR: #919192; 
+		SCROLLBAR-3DLIGHT-COLOR: #F0FBFD; 
+		SCROLLBAR-ARROW-COLOR: #919192; 
+		SCROLLBAR-TRACK-COLOR: #F0FBFD; 
+		SCROLLBAR-DARKSHADOW-COLOR: #F0FBFD; }
+		
+.p_table {
+	width: 100%;
+	height: 16px;
+	background: #CAE8EA url(table/images/bg_header.jpg);
+	
+	padding: 0px 0px 0px 0px;
+}
+
+.p_first { width: 20px; background: url(page/images/4.1.gif); }
+.p_nofirst{ width: 20px; background: url(page/images/4.gif); cursor: pointer; }
+.p_previous{ width: 20px; background: url(page/images/2.1.gif); }
+.p_noprevious{ width: 20px; background: url(page/images/2.gif); cursor: pointer; }
+.p_next{ width: 20px; background: url(page/images/1.gif); cursor: pointer; }
+.p_nonext{ width: 20px; background: url(page/images/1.1.gif); }
+.p_last{ width: 20px; background: url(page/images/3.1.gif); }
+.p_nolast{ width: 20px; background: url(page/images/3.gif); cursor: pointer; }
+.p_input{ width: 145px;}
+.p_input input{ width: 20px; background: #ffffff; height: 15px;}
+.p_footer { width: 200px; text-align: right; padding-right: 20px; }
+
+

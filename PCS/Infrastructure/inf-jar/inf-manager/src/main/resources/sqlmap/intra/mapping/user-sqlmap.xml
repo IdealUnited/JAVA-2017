@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="user">
+	<typeAlias alias="user" type="com.idealunited.poss.systemmanager.model.Users" />
+	<typeAlias alias="userForm" type="com.idealunited.poss.systemmanager.formbean.UserFormBean" />
+	<typeAlias alias="duty" type="com.idealunited.poss.systemmanager.model.Duty" />
+	<typeAlias alias="org" type="com.idealunited.poss.systemmanager.model.Org" />
+	
+	<insert id="create" parameterClass="user">
+		<selectKey resultClass="Long" keyProperty="userKy">
+			select LAST_INSERT_ID() as value
+		</selectKey>
+        INSERT INTO 
+        	USERS 
+        	(
+        	  USER_KY,           
+			  LOGIN_ID,          
+			  LOGIN_CHANNEL,     
+			  PASSWORD,         
+			  LAST_LOGIN_TIME,   
+			  LAST_LOGIN_IP,     
+			  PSWD_EXPIRED_TIME, 
+			  ALLOW_IP,          
+			  STATUS,
+			  email,    
+			  phone ,   
+			  mobile,   
+			 name,     
+			 rtx_Code,
+			 org_code,
+			 duty_code,
+			 repository_id
+            )
+        	VALUES 
+        	(
+	       		#userKy#,
+				#loginId#,
+				#loginChannel#,
+				#password#,
+				#lastLoginTime#,
+				#lastLoginIp#,
+				#pswdExpiredTime#,
+				#allowIp#,
+				#status#,
+				#userEmail#,
+				#userPhone#,
+				#userMobile#,
+				#userName#,
+				#userRTX#,
+				#orgCode#,
+				#dutyCode#,
+				#repositoryId#
+        	)
+    </insert>
+				
+    <select id="allUser" resultClass="user">
+    	SELECT 
+    		USER_KY as userKy,
+			LOGIN_ID as loginId,
+			LOGIN_CHANNEL as loginChannel,
+			PASSWORD as password,
+			LAST_LOGIN_TIME as lastLoginTime,
+			LAST_LOGIN_IP as lastLoginIp,
+			PSWD_EXPIRED_TIME as pswdExpiredTime,
+			ALLOW_IP as allowIp,
+			FAIL_LOGIN_NUM as failLoginNum,
+			STATUS as status,
+			 u.name      AS userName,
+		       u.email     AS userEmail,
+		       u.phone     As userPhone,
+		       u.mobile    AS userMobile,
+		       u.rtx_Code  AS userRTX,
+		       u.org_code as orgCode,
+		       u.duty_code as dutyCode,
+		       u.repository_id repositoryId
+    	FROM 
+    		USERS u
+    </select>
+    
+    <select id="search" resultClass="userForm">
+		select
+	   	u.user_ky AS userKy, 
+	   	u.name AS userName,
+	    o.org_name AS userOrgName,
+	    u.email AS userEmail,
+	    d.duty_name AS userDutyName,
+	    u.login_id AS userCode,
+	    u.password AS userPassword,
+	    u.status AS userStatus, 
+	    u.last_login_time AS lastLoginTime,
+	    u.repository_id repositoryId
+	    from users u 
+	    left join org o on (u.org_code = o.org_code )  
+	    left join duty d on (u.duty_code = d.duty_code) 
+	    where 1=1
+	    <isNotNull property="userName">  
+			and u.name like  #userName#||'%'
+		</isNotNull> 
+		<isNotNull property="userId">  
+			and	u.login_id like #userId#||'%'
+		</isNotNull>
+		<isNotNull property="status">  
+			and	u.STATUS = #status#
+		</isNotNull>
+		<isNotNull property="limitClauseStart">
+	        limit $limitClauseStart$,$limitClauseCount$
+	    </isNotNull>
+    </select>
+    
+    <select id="search_COUNT" resultClass="java.lang.Integer">
+		select
+		count(*)
+		 from users u 
+	    left join org o on (u.org_code = o.org_code )  
+	    left join duty d on (u.duty_code = d.duty_code) 
+	    where 1=1
+	    <isNotNull property="userName">  
+			and u.name like  #userName#||'%'
+		</isNotNull> 
+		<isNotNull  property="userId">  
+			and	u.login_id like #userId#||'%'
+		</isNotNull>
+		<isNotNull property="status">  
+			and	u.STATUS = #status#
+		</isNotNull>
+	</select>
+    
+    <select id="queryAllDuty" resultClass="duty">
+    	SELECT 
+    	  DUTY_ID AS dutyKy,
+    	   DUTY_CODE AS dutyCode,           
+		  DUTY_NAME AS dutyName
+		FROM
+		   DUTY
+		   order by dutyCode desc
+    </select>
+    
+     <select id="queryAllOrg" resultClass="org">
+    	SELECT 
+    	  ORG_KY AS orgKy,
+    	  ORG_CODE AS orgCode,              
+		  ORG_NAME AS orgName
+		FROM
+		   ORG   order by orgCode desc
+    </select>
+    
+    <delete id="deleteAll" parameterClass="java.lang.String">
+    	DELETE FROM 
+    		USERS
+        WHERE 
+        	USER_KY = #userKy#
+    </delete>
+    
+    <select id="queryUserByKy" resultClass="userForm">
+	  select u.user_ky   AS userId,
+       u.LOGIN_ID  AS userCode,
+       u.password  As userPassword,
+       u.STATUS    as userStatus,
+       u.org_code  as userOrgCode,
+       o.org_name  AS userOrgName,
+       u.duty_code AS userDutyCode,
+       d.duty_name AS userDutyName,
+ 	   u.name      AS userName,
+       u.email     AS userEmail,
+       u.phone     As userPhone,
+       u.mobile    AS userMobile,
+       u.rtx_Code  AS userRTX,
+       u.repository_id repositoryId
+  from users u
+  left join org o
+    on (u.org_code = o.org_code)
+  left join duty d
+    on (u.duty_code = d.duty_code)
+    where 
+	<isNotNull property="userKy">  
+		USER_KY = #userKy#
+	</isNotNull>
+	<isNotNull property="limitClauseStart">
+        limit $limitClauseStart$,$limitClauseCount$
+    </isNotNull>
+    </select>
+    
+    <select id="findById" resultClass="user">
+        SELECT
+        	USER_KY AS userKy, 
+			LOGIN_ID as loginId,
+			LOGIN_CHANNEL as loginChannel,
+			PASSWORD as password,
+			LAST_LOGIN_TIME as lastLoginTime,
+			LAST_LOGIN_IP as lastLoginIp,
+			PSWD_EXPIRED_TIME as pswdExpiredTime,
+			ALLOW_IP as allowIp,
+			FAIL_LOGIN_NUM as failLoginNum,
+			STATUS as status,
+			u.name      AS userName,
+		    u.email     AS userEmail,
+		    u.phone     As userPhone,
+		    u.mobile    AS userMobile,
+		    u.rtx_Code  AS userRTX,
+		    u.org_code as orgCode,
+		    u.duty_code as dutyCode,
+		    u.repository_id repositoryId
+        FROM 
+        	USERS u
+        WHERE 
+        	USER_KY = #userKy#
+    </select>
+    
+    <update id="delete" parameterClass="user">
+        UPDATE 
+        	USERS
+        SET 
+			STATUS = #status#
+    	WHERE 
+        	USER_KY = #userKy#
+    </update>
+    
+    <update id="update" parameterClass="user">
+        UPDATE 
+        	USERS
+        SET 
+			LOGIN_ID = #loginId#,
+			LOGIN_CHANNEL = #loginChannel#,
+			<isNotEmpty property="password" >
+				PASSWORD = #password#,
+			</isNotEmpty>
+			PSWD_EXPIRED_TIME = #pswdExpiredTime#,
+			ALLOW_IP = #allowIp#,
+			FAIL_LOGIN_NUM = #failLoginNum#,
+			STATUS = #status#,
+			email  = #userEmail#,
+       		phone   = #userPhone#,
+       		mobile   = #userMobile#,
+       		rtx_Code = #userRTX#,
+       		org_code = #orgCode#,
+       		duty_code = #dutyCode#,
+       		name = #userName#
+       		<isNotEmpty property="repositoryId" >
+       		,repository_id=#repositoryId#
+       		</isNotEmpty>
+    	WHERE 
+        	USER_KY = #userKy#
+    </update>
+    
+     <update id="updatePassword" parameterClass="user">
+        UPDATE 
+        	USERS
+        SET 
+			PASSWORD = #password#
+    	WHERE 
+        	USER_KY = #userKy#
+    </update>
+    
+    <select id="findByLoginId" resultClass="user">
+        SELECT
+        	USER_KY AS userKy, 
+			LOGIN_ID as loginId,
+			LOGIN_CHANNEL as loginChannel,
+			PASSWORD as password,
+			LAST_LOGIN_TIME as lastLoginTime,
+			LAST_LOGIN_IP as lastLoginIp,
+			PSWD_EXPIRED_TIME as pswdExpiredTime,
+			ALLOW_IP as allowIp,
+			FAIL_LOGIN_NUM as failLoginNum,
+			STATUS as status,
+			u.name      AS userName,
+		    u.email     AS userEmail,
+		    u.phone     As userPhone,
+		    u.mobile    AS userMobile,
+		    u.rtx_Code  AS userRTX,
+		    u.org_code as orgCode,
+		    u.duty_code as dutyCode,
+		    u.repository_id repositoryId
+        FROM 
+        	USERS u
+        WHERE 
+        	LOGIN_ID = #loginId#
+    </select>
+</sqlMap>

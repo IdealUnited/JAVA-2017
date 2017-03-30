@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>FormValid 0.1</title>
+<script language="JavaScript" type="text/javascript" src="global.js"></script>
+<script language="JavaScript" type="text/javascript" src="FormValid.js"></script>
+</head>
+
+<body>
+<table width="400" border="0" align="center" cellpadding="3" cellspacing="0">
+<form id="form1" name="form1" method="post" onsubmit="return validator(this)" action="">
+  <tr>
+    <td width="100">用户名：</td>
+    <td><input name="username" type="text" valid="required" errmsg="用户名不能为空!" /></td>
+  </tr>
+  <tr>
+    <td>密码</td>
+    <td><input name="passwd" type="password" id="passwd" valid="required" errmsg="密码不能为空!" /></td>
+  </tr>
+  <tr>
+    <td>重复密码</td>
+    <td><input name="passwd2" type="password" id="passwd2" valid="eqaul" eqaulName="passwd" errmsg="两次密码不同!" /></td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td><input name="Email" type="text" id="Email" valid="required|isEmail" errmsg="Email不能为空|Email格式不对!" /></td>
+  </tr>
+  <tr>
+    <td>手机</td>
+    <td><input name="mobile" type="text" id="mobile" valid="isInt" errmsg="手机格式不对!" /></td>
+  </tr>
+  <tr>
+    <td>生日</td>
+    <td><input name="birthday" type="text" id="birthday" valid="isDate" errmsg="生日格式不对!" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><input type="submit" name="Submit" value="提交" /></td>
+  </tr>
+</form>
+</table>
+</body>
+</html>

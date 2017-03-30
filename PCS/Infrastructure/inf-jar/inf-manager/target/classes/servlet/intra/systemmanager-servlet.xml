@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean id="systemManagerUrlHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="forwordMain.do">forwordMainController</prop>
+				<prop key="main.do">mainController</prop>
+				<prop key="user.do">userController</prop>
+				<prop key="userAdd.do">userAddController</prop>
+				<prop key="menu.do">menuFactoryController</prop>
+				<prop key="menuAdmin.do">menuController</prop>
+				<prop key="roleForUser.do">roleForUserController</prop>
+				<prop key="roleAdmin.do">roleAdminController</prop>
+				<prop key="updatepassword.do">updatePasswordController</prop>
+				<prop key="/roleJoinUserAction.do">roleJoinUserController</prop>
+				<prop key="/openUrlAdmin.do">openUrlAdminController</prop>
+				<prop key="/security/openUrlAdmin.do">openUrlAdminController</prop>
+				<prop key="/security/modfiyIpGroup.do">openUrlAdminController</prop>
+				<prop key="/security/removeIpGroup.do">openUrlAdminController</prop>
+				<prop key="/security/newOpenUrlConfig.do">openUrlAdminController</prop>
+				<prop key="/security/removeUrlConfig.do">openUrlAdminController</prop>
+				<prop key="/security/addConfigIpGroup.do">openUrlAdminController</prop>
+				<prop key="/security/modifyUrlConfig.do">openUrlAdminController</prop>
+				<prop key="/security/authIp.do">authIpAdminController</prop>
+				<prop key="log.do">logController</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean name="openUrlAdminControllerMethodNameResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+		<property name="mappings">
+			<props>
+				<prop key="/security/openUrlAdmin.do">index</prop>
+				<prop key="/openUrlAdmin.do">index</prop>
+				<prop key="/security/modfiyIpGroup.do">modfiyIpGroup</prop>
+				<prop key="/security/removeIpGroup.do">removeIpGroup</prop>
+				<prop key="/security/newOpenUrlConfig.do">addOpenUrlConfig</prop>
+				<prop key="/security/removeUrlConfig.do">removeUrlConfig</prop>
+				<prop key="/security/addConfigIpGroup.do">addConfigIpGroup</prop>
+				<prop key="/security/modifyUrlConfig.do">modifyUrlConfig</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="logController" class="com.idealunited.poss.systemmanager.controller.LogController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="initView">
+			<value>/systemmanager/log/logInit</value>
+		</property>
+		<property name="listView">
+			<value>/systemmanager/log/logList</value>
+		</property>
+		<property name="downView">
+			<value>/systemmanager/log/downList</value>
+		</property>
+		<property name="logService" ref="logService" />
+	</bean>
+
+	<!-- 登录成功 转首页 -->
+	<bean id="forwordMainController"
+		class="com.idealunited.poss.systemmanager.controller.ForwordMainController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="mainView">
+			<value>/mainstyle/main</value>
+		</property>
+	</bean>
+
+	<!-- mainstyle 首页 -->
+	<bean id="mainController" class="com.idealunited.poss.systemmanager.controller.MainController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="topFrame">
+			<value>/mainstyle/mainTop</value>
+		</property>
+		<property name="topMenu">
+			<value>/mainstyle/topMenu</value>
+		</property>
+		<property name="menuFrame">
+			<value>/mainstyle/menu</value>
+		</property>
+		<property name="buttonFrame">
+			<value>/mainstyle/frame</value>
+		</property>
+		<property name="bodyFrame">
+			<value>/mainstyle/body</value>
+		</property>
+		<property name="menuFactoryService" ref="menuFactoryService" />
+		<property name="accessLogService" ref="se-accessLogService" />
+	</bean>
+
+	<!-- 菜单 暂时无用 -->
+	<bean id="menuFactoryController"
+		class="com.idealunited.poss.systemmanager.controller.MenuFactoryController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="headView">
+			<!--<value>headMenu</value> -->
+			<value>/systemmanager/top</value>
+		</property>
+		<property name="leftView">
+			<value>/systemmanager/leftMenu</value>
+		</property>
+		<property name="bodyView">
+			<value>/systemmanager/body</value>
+		</property>
+		<property name="menuFactoryService" ref="menuFactoryService" />
+	</bean>
+
+	<!-- 菜单管理 -->
+	<bean id="menuController" class="com.idealunited.poss.systemmanager.controller.MenuController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="toView">
+			<value>/systemmanager/menu/menuAdmin</value>
+		</property>
+		<property name="menuFactoryService" ref="menuFactoryService" />
+		<property name="possMenuService" ref="possMenuService" />
+	</bean>
+
+	<!-- 用户新增 -->
+	<bean name="userAddController"
+		class="com.idealunited.poss.systemmanager.controller.UserAddController">
+		<property name="commandName">
+			<value>UserFormBean</value>
+		</property>
+		<property name="commandClass">
+			<value>com.idealunited.poss.systemmanager.formbean.UserFormBean</value>
+		</property>
+		<property name="formView">
+			<value>/systemmanager/user/userAdd</value>
+		</property>
+		<property name="successView">
+			<value>/systemmanager/user/edit</value>
+		</property>
+		<property name="userService" ref="userService" />
+		<property name="txncoreRepositoryClientService" ref="txncoreRepositoryClientService"/>
+	</bean>
+
+	<!-- 用户管理 -->
+	<bean id="userController" class="com.idealunited.poss.systemmanager.controller.UserController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="viewName">
+			<value>/systemmanager/user/userList</value>
+		</property>
+		<property name="toView">
+			<value>/systemmanager/user/userInit</value>
+		</property>
+		<property name="addView">
+			<value>/systemmanager/user/userAdd</value>
+		</property>
+		<property name="editView">
+			<value>/systemmanager/user/userEdit</value>
+		</property>
+		<property name="userService" ref="userService" />
+		<property name="txncoreRepositoryClientService" ref="txncoreRepositoryClientService"/>
+	</bean>
+
+	<!-- 用户角色分配 -->
+	<bean id="roleForUserController"
+		class="com.idealunited.poss.systemmanager.controller.RoleForUserController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="toView">
+			<value>/systemmanager/role/roleForUserInit</value>
+		</property>
+		<property name="listView">
+			<value>/systemmanager/role/roleForUserList</value>
+		</property>
+		<property name="forUser">
+			<value>/systemmanager/role/roleJoinUser</value>
+		</property>
+		<property name="userService" ref="userService" />
+		<property name="roleService" ref="roleService" />
+	</bean>
+
+	<!-- 角色管理、新增 -->
+	<bean id="roleAdminController"
+		class="com.idealunited.poss.systemmanager.controller.RoleAdminController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="toView">
+			<value>/systemmanager/role/roleInit</value>
+		</property>
+		<property name="listView">
+			<value>/systemmanager/role/roleList</value>
+		</property>
+		<property name="addView">
+			<value>/systemmanager/role/roleAdd</value>
+		</property>
+		<property name="roleService" ref="roleService" />
+		<property name="menuFactoryService" ref="menuFactoryService" />
+	</bean>
+
+	<!-- 修改密码 -->
+	<bean id="updatePasswordController"
+		class="com.idealunited.poss.systemmanager.controller.UpdatePasswordController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="toView">
+			<value>/systemmanager/changePassword</value>
+		</property>
+		<property name="userService" ref="userService" />
+	</bean>
+
+	<!-- 批理分配角色 -->
+	<bean id="batchRoleForUserController"
+		class="com.idealunited.poss.systemmanager.controller.BatchRoleForUserController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="toView">
+			<value>/systemmanager/</value>
+		</property>
+		<property name="roleService" ref="roleService" />
+	</bean>
+
+	<!-- 用户角色分配 -->
+	<bean id="roleJoinUserController"
+		class="com.idealunited.poss.systemmanager.controller.RoleJoinUserController">
+		<property name="commandName">
+			<value>roleJoinUserFormBean</value>
+		</property>
+		<property name="commandClass">
+			<value>com.idealunited.poss.systemmanager.formbean.RoleJoinUserFormBean</value>
+		</property>
+		<property name="formView">
+			<value>/systemmanager/role/roleJoinUser</value>
+		</property>
+		<property name="successView">
+			<value>/systemmanager/role/roleJoinUser</value>
+		</property>
+		<property name="roleService" ref="roleService" />
+
+	</bean>
+
+	<!-- 用户角色分配 -->
+	<bean id="openUrlAdminController"
+		class="com.idealunited.poss.systemmanager.controller.OpenUrlAdminController">
+		<property name="methodNameResolver">
+			<ref bean="openUrlAdminControllerMethodNameResolver" />
+		</property>
+		<property name="openUrlAdminView">
+			<value>/systemmanager/security/openUrlAdmin</value>
+		</property>
+		<property name="openUrlConfigService" ref="se-openUrlConfigService" />
+	</bean>
+
+	<!-- 授权ip访问 -->
+	<bean id="authIpAdminController"
+		class="com.idealunited.poss.systemmanager.controller.AuthIpAdminController">
+		<property name="methodNameResolver">
+			<ref bean="paraMethodResolver" />
+		</property>
+		<property name="indexView">
+			<value>/systemmanager/security/authip/auth_ip_index</value>
+		</property>
+		<property name="listView">
+			<value>/systemmanager/security/authip/auth_ip_list</value>
+		</property>
+		<property name="accessAuthorityService" ref="se-accessAuthrityService" />
+	</bean>
+
+</beans>

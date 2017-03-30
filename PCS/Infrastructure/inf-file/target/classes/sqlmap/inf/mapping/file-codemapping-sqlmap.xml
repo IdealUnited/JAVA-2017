@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="fileCodeMapping">
+
+	<typeAlias alias="codeMapping" type="com.idealunited.file.model.FileCodeMapping" />
+	<select id="queryCodeMappings"  parameterClass="java.util.HashMap" resultClass="codeMapping">
+	 	SELECT 
+		       	   FAMILY      			family    ,
+		           CODE        			code    ,
+		           NAME					name	,
+		           VALUE     		 	value    ,
+		           DESCRIPTION      	description    ,
+		           STATUS				status		,
+		       	   UPDATE_TIME			updateTime	
+  			FROM FILE_CODE_MAPPING 
+    	<dynamic prepend="WHERE"> 
+      		 <isNotEmpty property="FAMILY" prepend="AND">
+		       		FAMILY = #FAMILY#
+		     </isNotEmpty>
+		     <isNotEmpty property="CODE" prepend="and">
+		       		CODE = #CODE#
+		     </isNotEmpty>
+		     <isNotEmpty property="STATUS" prepend="and">
+		       		STATUS = #STATUS#
+		     </isNotEmpty>		     
+     	</dynamic>  		
+	</select>
+</sqlMap>
