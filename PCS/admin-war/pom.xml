@@ -22,7 +22,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.idealunited</groupId>
-			<artifactId>inf-manager</artifactId>
+			<artifactId>ca-manager</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 		<dependency>

@@ -4,10 +4,10 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <dependent-module archiveName="inf-manager-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-manager/inf-manager">
+        <dependent-module archiveName="ca-manager-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ca-manager/ca-manager">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="inf-security-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-security/inf-security">
+        <dependent-module archiveName="ca-security-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ca-security/ca-security">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="inf-validateCode-0.0.1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/inf-validateCode/inf-validateCode">
