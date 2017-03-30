@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+
+	<bean id="gatewayLobHandler" class="org.springframework.jdbc.support.lob.DefaultLobHandler"
+		lazy-init="true" />
+
+	<bean id="gatewayTransactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource">
+			<ref bean="fiDs" />
+		</property>
+	</bean>
+
+	<bean id="gatewaySqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:sqlmap/sqlmap-config.xml</value>
+		</property>
+		<property name="mappingLocations">
+			<value>classpath*:sqlmap/fi/**/*.xml</value>
+		</property>
+		<property name="dataSource" ref="fiDs" />
+		<property name="lobHandler" ref="gatewayLobHandler" />
+	</bean>
+
+	<aop:config>
+		<aop:pointcut id="serviceGatewayMethod"
+			expression="execution(* com.idealunited.gateway.service..*.*(..))" />
+		<aop:advisor advice-ref="txGatewayAdvice" pointcut-ref="serviceGatewayMethod" />
+	</aop:config>
+
+	<tx:advice id="txGatewayAdvice" transaction-manager="gatewayTransactionManager">
+		<tx:attributes>
+			<tx:method name="query*" read-only="true" />
+			<tx:method name="*" propagation="SUPPORTS" rollback-for="AppException" />
+			<tx:method name="*RnTx" propagation="REQUIRES_NEW"
+				rollback-for="AppException" />
+			<tx:method name="*SpTx" propagation="SUPPORTS"
+				rollback-for="AppException" />
+			<tx:method name="*NsTx" propagation="NOT_SUPPORTED"
+				rollback-for="AppException" />
+			<tx:method name="*RdTx" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="process*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="execute*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="change*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="update*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="insert*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="create*" propagation="REQUIRED"
+				rollback-for="AppException" />
+			<tx:method name="delete*" propagation="REQUIRED"
+				rollback-for="AppException" />
+		</tx:attributes>
+	</tx:advice>
+</beans>

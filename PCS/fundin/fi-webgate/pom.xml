@@ -1,0 +1,139 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.idealunited.commons</groupId>
+		<artifactId>root-pom</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	
+	<groupId>com.idealunited.fi</groupId>
+	<artifactId>fi-webgate</artifactId>
+	<version>0.0.1</version>
+	<packaging>war</packaging>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>opensymphony</groupId>
+			<artifactId>sitemesh</artifactId>
+			<version>2.4.2</version>
+		</dependency>
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+		</dependency>
+				<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>jstl</artifactId>
+		  <version>1.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>commons-pool</groupId>
+		  <artifactId>commons-pool</artifactId>
+		  <version>1.5.4</version>
+		</dependency>
+		<dependency>
+		  <groupId>commons-dbcp</groupId>
+		  <artifactId>commons-dbcp</artifactId>
+		  <version>1.4</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.idealunited.fi</groupId>
+			<artifactId>fi-commons</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.idealunited</groupId>
+			<artifactId>inf-util</artifactId>
+			<version>0.0.1</version>
+		</dependency>	
+		<dependency>
+			<groupId>com.idealunited</groupId>
+			<artifactId>inf-hessian</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+<!--	<dependency>
+			<groupId>com.idealunited</groupId>
+			<artifactId>inf-framework</artifactId>
+			<version>0.0.1</version>
+		</dependency> 		
+		<dependency>
+			<groupId>com.idealunited.ma</groupId>
+			<artifactId>pay-ma-api</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.ma</groupId>
+			<artifactId>pay-ma-acct</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.ma</groupId>
+			<artifactId>pay-ma-member-operater</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.ma</groupId>
+			<artifactId>pay-ma-api-impl</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.rm</groupId>
+			<artifactId>rm-service</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.rm</groupId>
+			<artifactId>rm-external-facade</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+<!-- 		<dependency>
+			<groupId>com.idealunited.commons</groupId>
+			<artifactId>if-notification-client</artifactId>
+			<version>0.0.1</version>
+		</dependency> -->
+	</dependencies>
+
+	<build>
+		<finalName>webgate</finalName>
+	</build>
+</project>

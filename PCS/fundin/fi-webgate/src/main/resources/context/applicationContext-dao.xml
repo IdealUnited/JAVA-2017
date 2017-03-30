@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+ "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+	<bean id="gatewayBaseDAO" class="com.idealunited.inf.dao.impl.BaseDAOImpl"
+		abstract="true">
+		<property name="sqlMapClient" ref="gatewaySqlMapClient" />
+	</bean>
+
+	<bean id="gatewayRequestDAO" class="com.idealunited.gateway.dao.impl.GatewayRequestDAOImpl"
+		parent="gatewayBaseDAO">
+		<property name="namespace" value="gatewayRequest" />
+	</bean>
+
+	<bean id="gatewayResponseDAO" class="com.idealunited.gateway.dao.impl.GatewayResponseDAOImpl"
+		parent="gatewayBaseDAO">
+		<property name="namespace" value="gatewayResponse" />
+	</bean>
+
+</beans> 

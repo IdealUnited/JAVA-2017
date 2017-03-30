@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
+
+	<!-- 跨境人民币收银台收单 -->
+	<bean id="nativepayAcquireValidateService" class="com.idealunited.inf.service.impl.ValidateServiceImpl">
+		<property name="ruleEngine" ref="nativeOnlineAcquireRule" />
+	</bean>
+
+	<bean id="nativeOnlineAcquireRule" class="com.idealunited.inf.rule.RuleEngine">
+		<property name="firstStep">
+			<ref bean="nativeMobileClientTypeCheckRule" />
+		</property>
+	</bean>
+
+	<bean id="nativeMobileClientTypeCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.MobileClientTypeCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeVersionCheckRule" />
+		</property>
+		<property name="messageId" value="0001" />
+		<property name="message" value="不支持微信浏览器" />
+	</bean>
+	
+	<bean id="nativeVersionCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.VersionCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeSubmitTimeCheckRule" />
+		</property>
+		<property name="messageId" value="0002" />
+		<property name="message" value="版本号不正确" />
+	</bean>
+
+	<bean id="nativeSubmitTimeCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.SubmitTimeCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeOrderAmountCheckRule" />
+		</property>
+		<property name="messageId" value="0006" />
+		<property name="message" value="订单提交时间不正确" />
+	</bean>
+
+	<bean id="nativeOrderAmountCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.OrderAmountCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeCharsetCheckRule" />
+		</property>
+		<property name="messageId" value="0008" />
+		<property name="message" value="订单金额不正确" />
+	</bean>
+
+	<bean id="nativeCharsetCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.CharsetCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeSignTypeCheckRule" />
+		</property>
+		<property name="messageId" value="0046" />
+		<property name="message" value="编码方式不正确" />
+	</bean>
+
+	<bean id="nativeSignTypeCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.SignTypeCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeOnlineAcquireSignMsgCheckRule" />
+		</property>
+		<property name="messageId" value="0047" />
+		<property name="message" value="签名类型不正确" />
+	</bean>
+
+	<bean id="nativeOnlineAcquireSignMsgCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.OnlinePayCashierAcquireSignMsgCheckRule">
+		<property name="txncoreClientService" ref="txncoreClientService" />
+		<property name="tradeDataSingnatureService" ref="tradeDataSingnatureService" />
+		<property name="negativeOutcomeStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="nativeGatewayRequestSaveAction" />
+		</property>
+		<property name="messageId" value="0048" />
+		<property name="message" value="签名校验不通过" />
+	</bean>
+
+	<bean id="nativeGatewayRequestSaveAction"
+		class="com.idealunited.gateway.validate.onlinePay.cashier.GatewayRequestSaveAction">
+		<property name="gatewayRequestService" ref="gatewayRequestService" />
+		<property name="nextStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+	</bean>
+
+</beans>

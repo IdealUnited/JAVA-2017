@@ -1,0 +1,90 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>file:/opt/idealunited/hessian/hessian.properties</value>
+			</list>
+		</property>
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="fileEncoding">
+			<value>UTF-8</value>
+		</property>
+	</bean>
+
+	<bean id="client-txnCoreService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.txncoreUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+
+	<bean id="client-channelService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.channelUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+	
+<!-- 	<bean id="client-purchaseService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.purchaseUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean> -->
+<!-- 	
+	<bean id="client-exchangesettlementService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.exchangesettlementUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean> -->
+	
+
+	<bean id="txncoreClientService" class="com.idealunited.gateway.client.TxncoreClientService">
+		<property name="invokeService" ref="client-txnCoreService" />
+	</bean>
+
+	<bean id="channelClientService" class="com.idealunited.gateway.client.ChannelClientService">
+		<property name="invokeService" ref="client-channelService" />
+	</bean>
+
+<!-- 	<bean id="client-cybsService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.cybsUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean> -->
+	
+	<bean id="client-maService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.mabridgeUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+	
+	<bean id="maBrigeService" class="com.idealunited.gateway.client.MaBrigeClientService">
+		<property name="maInvokeService" ref="client-maService"/>
+	</bean>
+	
+	
+	<bean id="client-fobridgeService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.fobridgeUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+	
+	<bean id="foBridgeClientService" class="com.idealunited.gateway.client.FoBridgeClientService">
+		<property name="invokeService" ref="client-fobridgeService" />
+	</bean>
+
+	<bean id="client-eportCoreService"
+		class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
+		<property name="serviceUrl" value="${hessian.eportCoreUrl}" />
+		<property name="serviceInterface" value="com.idealunited.inf.service.HessianInvokeService" />
+	</bean>
+</beans>

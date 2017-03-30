@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="gatewayRequest">
+	<typeAlias alias="gatewayRequest" type="com.idealunited.gateway.model.GatewayRequest"/>
+    <resultMap id="gatewayRequestResult" class="gatewayRequest">
+        <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR"/>
+        <result column="STATUS" property="status" jdbcType="VARCHAR"/>
+        <result column="SIGN_TYPE" property="signType" jdbcType="DECIMAL"/>
+        <result column="PARTNER_ID" property="partnerId" jdbcType="DECIMAL"/>
+        <result column="CHARSET" property="charset" jdbcType="DECIMAL"/>
+        <result column="SERVICE_VERSION" property="serviceVersion" jdbcType="VARCHAR"/>
+        <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR"/>
+        <result column="REQUEST_CONTEXT" property="requestContext" jdbcType="VARCHAR"/>
+        <result column="ID" property="id" jdbcType="DECIMAL"/>
+        <result column="SIGN_MSG" property="signMsg" jdbcType="VARCHAR"/>
+        <result column="ERROR_CODE" property="errorCode" jdbcType="VARCHAR"/>
+        <result column="FROM_DOMAIN" property="fromDomain" jdbcType="VARCHAR"/>
+        <result column="REQUEST_IP" property="requestIp" jdbcType="VARCHAR"/>
+        <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <insert id="create" parameterClass="gatewayRequest">
+     	<selectKey resultClass="java.lang.Long" keyProperty="id">
+    		SELECT SEQ_REQUEST_NO.nextval  FROM DUAL 
+    	</selectKey>
+        INSERT INTO GATEWAY_REQUEST(
+			ORDER_ID,STATUS,SIGN_TYPE,PARTNER_ID,CHARSET,
+			SERVICE_VERSION,BUSINESS_TYPE,REQUEST_CONTEXT,ID,SIGN_MSG,
+			ERROR_CODE,FROM_DOMAIN,CREATE_DATE,REQUEST_IP
+        )
+        VALUES(
+            #orderId#,#status#,#signType#,#partnerId#,#charset#,
+			#serviceVersion#,#businessType#,#requestContext#,#id#,#signMsg#,
+			#errorCode#,#fromDomain#,sysdate,#requestIp#
+		)
+    </insert>
+
+    <update id="update" parameterClass="gatewayRequest">
+        UPDATE GATEWAY_REQUEST
+        <dynamic prepend="SET"> 
+        <isNotNull prepend="," property="orderId">
+            ORDER_ID = #orderId#
+        </isNotNull>
+        <isNotNull prepend="," property="status">
+            STATUS = #status#
+        </isNotNull>
+        <isNotNull prepend="," property="signType">
+            SIGN_TYPE = #signType#
+        </isNotNull>
+        <isNotNull prepend="," property="partnerId">
+            PARTNER_ID = #partnerId#
+        </isNotNull>
+        <isNotNull prepend="," property="charset">
+            CHARSET = #charset#
+        </isNotNull>
+        <isNotNull prepend="," property="serviceVersion">
+            SERVICE_VERSION = #serviceVersion#
+        </isNotNull>
+        <isNotNull prepend="," property="businessType">
+            BUSINESS_TYPE = #businessType#
+        </isNotNull>
+        <isNotNull prepend="," property="requestContext">
+            REQUEST_CONTEXT = #requestContext#
+        </isNotNull>
+        <isNotNull prepend="," property="id">
+            ID = #id#
+        </isNotNull>
+        <isNotNull prepend="," property="signMsg">
+            SIGN_MSG = #signMsg#
+        </isNotNull>
+        <isNotNull prepend="," property="errorCode">
+            ERROR_CODE = #errorCode#
+        </isNotNull>
+        <isNotNull prepend="," property="fromDomain">
+            FROM_DOMAIN = #fromDomain#
+        </isNotNull>
+        <isNotNull prepend="," property="createDate">
+            CREATE_DATE = #createDate#
+        </isNotNull>
+        </dynamic>
+        <dynamic prepend="WHERE">
+        	 ID = #id#
+        </dynamic>
+    </update>
+    
+    <delete id="delete" parameterClass="java.lang.Long">
+        DELETE FROM GATEWAY_REQUEST        
+        <dynamic prepend="WHERE">
+         ID = #id#
+        </dynamic>
+    </delete>
+    
+    <select id="queryByMemberCodeAndOrderId" resultMap="gatewayRequestResult"
+        parameterClass="java.util.HashMap">
+        SELECT * FROM GATEWAY_REQUEST
+        WHERE  ORDER_ID = #orderId# and PARTNER_ID = #memberCode#
+    </select>
+
+    <select id="findById" resultMap="gatewayRequestResult"
+        parameterClass="java.lang.Long">
+        SELECT *
+        FROM GATEWAY_REQUEST
+        WHERE  ID = #id#
+    </select>
+    
+      <select id="findByGateWayInfo" resultMap="gatewayRequestResult"
+        parameterClass="java.lang.String">
+        SELECT *
+        FROM GATEWAY_REQUEST
+        WHERE  ORDER_ID = #orderId#
+    </select>
+    
+    <select id="findBySelective" resultMap="gatewayRequestResult">
+        SELECT 
+			ORDER_ID,STATUS,SIGN_TYPE,PARTNER_ID,CHARSET,
+			SERVICE_VERSION,BUSINESS_TYPE,REQUEST_CONTEXT,ID,SIGN_MSG,
+			ERROR_CODE,FROM_DOMAIN,CREATE_DATE
+        FROM GATEWAY_REQUEST
+        <dynamic prepend="WHERE"> 
+        <isNotNull prepend="AND" property="orderId">
+            ORDER_ID = #orderId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="status">
+            STATUS = #status# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signType">
+            SIGN_TYPE = #signType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="partnerId">
+            PARTNER_ID = #partnerId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="charset">
+            CHARSET = #charset# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="serviceVersion">
+            SERVICE_VERSION = #serviceVersion# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="businessType">
+            BUSINESS_TYPE = #businessType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="requestContext">
+            REQUEST_CONTEXT = #requestContext# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="id">
+            ID = #id# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signMsg">
+            SIGN_MSG = #signMsg# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="errorCode">
+            ERROR_CODE = #errorCode# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="fromDomain">
+            FROM_DOMAIN = #fromDomain# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="createDate">
+            CREATE_DATE = #createDate# 
+        </isNotNull>
+        </dynamic>
+    </select>
+
+    <select id="countByExample"  resultClass="java.lang.Integer">
+        SELECT count(*) FROM GATEWAY_REQUEST
+        <dynamic prepend="WHERE">
+        <isNotNull prepend="AND" property="orderId">
+            ORDER_ID = #orderId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="status">
+            STATUS = #status# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signType">
+            SIGN_TYPE = #signType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="partnerId">
+            PARTNER_ID = #partnerId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="charset">
+            CHARSET = #charset# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="serviceVersion">
+            SERVICE_VERSION = #serviceVersion# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="businessType">
+            BUSINESS_TYPE = #businessType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="requestContext">
+            REQUEST_CONTEXT = #requestContext# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="id">
+            ID = #id# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signMsg">
+            SIGN_MSG = #signMsg# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="errorCode">
+            ERROR_CODE = #errorCode# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="fromDomain">
+            FROM_DOMAIN = #fromDomain# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="createDate">
+            CREATE_DATE = #createDate# 
+        </isNotNull>
+        </dynamic>
+    </select>
+</sqlMap>

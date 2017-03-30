@@ -1,0 +1,236 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">	<!-- DataSource -->
+
+	<bean id="gatewayOrderRequestMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="version">
+					<value>version</value>
+				</entry>
+				<entry key="serialID">
+					<value>serialID</value>
+				</entry>
+				<entry key="submitTime">
+					<value>submitTime</value>
+				</entry>
+				<entry key="failureTime">
+					<value>failureTime</value>
+				</entry>
+				<entry key="customerIP">
+					<value>customerIP</value>
+				</entry>
+				<entry key="totalAmount">
+					<value>totalAmount</value>
+				</entry>
+				<entry key="type">
+					<value>type</value>
+				</entry>
+				<entry key="buyerMarked">
+					<value>buyerMarked</value>
+				</entry>
+				<entry key="payType">
+					<value>payType</value>
+				</entry>
+				<entry key="orderDetails">
+					<value>orderDetails</value>
+				</entry>
+				<entry key="orgCode">
+					<value>orgCode</value>
+				</entry>
+				<entry key="currencyCode">
+					<value>currencyCode</value>
+				</entry>
+				<entry key="directFlag">
+					<value>directFlag</value>
+				</entry>
+				<entry key="borrowingMarked">
+					<value>borrowingMarked</value>
+				</entry>
+				<entry key="couponFlag">
+					<value>couponFlag</value>
+				</entry>
+				<entry key="platformId">
+					<value>platformId</value>
+				</entry>
+				<entry key="returnUrl">
+					<value>returnUrl</value>
+				</entry>
+				<entry key="noticeUrl">
+					<value>noticeUrl</value>
+				</entry>
+				<entry key="partnerID">
+					<value>partnerID</value>
+				</entry>
+				<entry key="remark">
+					<value>remark</value>
+				</entry>
+				
+				<entry key="cardHolderAcct">
+					<value>cardHolderAcct</value>
+				</entry>
+				<entry key="cardHolderName">
+					<value>cardHolderName</value>
+				</entry>
+				<entry key="cardHolderCertType">
+					<value>cardHolderCertType</value>
+				</entry>
+				<entry key="cardHolderCertNo">
+					<value>cardHolderCertNo</value>
+				</entry>
+				<entry key="cardHolderCardNo">
+					<value>cardHolderCardNo</value>
+				</entry>
+				<entry key="cardHolderMobile">
+					<value>cardHolderMobile</value>
+				</entry>
+				
+				<entry key="charset">
+					<value>charset</value>
+				</entry>
+				<entry key="signType">
+					<value>signType</value>
+				</entry>
+				<entry key="signMsg">
+					<value>signMsg</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="orderDetailMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="orderID">
+					<value>orderID</value>
+				</entry>
+				<entry key="orderAmount">
+					<value>orderAmount</value>
+				</entry>
+				<entry key="sellerName">
+					<value>sellerName</value>
+				</entry>
+				<entry key="goodsName">
+					<value>goodsName</value>
+				</entry>
+				<entry key="goodsCount">
+					<value>goodsCount</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="gatewayOrderHistoryMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="version">
+					<value>version</value>
+				</entry>
+				<entry key="serialID">
+					<value>serialID</value>
+				</entry>
+				<entry key="partnerID">
+					<value>partnerID</value>
+				</entry>
+				<entry key="customerIP">
+					<value>customerIP</value>
+				</entry>
+				<entry key="charset">
+					<value>charset</value>
+				</entry>
+				<entry key="signType">
+					<value>signType</value>
+				</entry>
+				<entry key="signMsg">
+					<value>signMsg</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="quickPayAcquireRequestMap" class="java.util.HashMap">
+		<constructor-arg>
+			<map>
+				<entry key="version">
+					<value>version</value>
+				</entry>
+				<entry key="serialID">
+					<value>serialID</value>
+				</entry>
+				<entry key="submitTime">
+					<value>submitTime</value>
+				</entry>
+				<entry key="failureTime">
+					<value>failureTime</value>
+				</entry>
+				<entry key="customerIP">
+					<value>customerIP</value>
+				</entry>
+				<entry key="totalAmount">
+					<value>totalAmount</value>
+				</entry>
+				<entry key="type">
+					<value>type</value>
+				</entry>
+				<entry key="buyerMarked">
+					<value>buyerMarked</value>
+				</entry>
+				<entry key="payType">
+					<value>payType</value>
+				</entry>
+				<entry key="orgCode">
+					<value>orgCode</value>
+				</entry>
+				<entry key="orderDetails">
+					<value>orderDetails</value>
+				</entry>
+				<entry key="currencyCode">
+					<value>currencyCode</value>
+				</entry>
+				<entry key="directFlag">
+					<value>directFlag</value>
+				</entry>
+				<entry key="borrowingMarked">
+					<value>borrowingMarked</value>
+				</entry>
+				<entry key="couponFlag">
+					<value>couponFlag</value>
+				</entry>
+				<entry key="platformId">
+					<value>platformId</value>
+				</entry>
+				<entry key="returnUrl">
+					<value>returnUrl</value>
+				</entry>
+				<entry key="noticeUrl">
+					<value>noticeUrl</value>
+				</entry>
+				<entry key="partnerID">
+					<value>partnerID</value>
+				</entry>
+				<entry key="remark">
+					<value>remark</value>
+				</entry>
+				<entry key="charset">
+					<value>charset</value>
+				</entry>
+				<entry key="signType">
+					<value>signType</value>
+				</entry>
+				<entry key="signMsg">
+					<value>signMsg</value>
+				</entry>
+				<entry key="partnerUserID">
+					<value>partnerUserID</value>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+</beans> 

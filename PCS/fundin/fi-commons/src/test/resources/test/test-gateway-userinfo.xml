@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<bean id="buyerId" class="java.lang.String">
+		<constructor-arg>
+			<value>988775</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="sellerId" class="java.lang.String">
+		<constructor-arg>
+			<value>988776</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="partner" class="java.lang.String">
+		<constructor-arg>
+			<value>10000000011</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="payerMemberCode" class="java.lang.String">
+		<constructor-arg>
+			<value>10000000011</value>
+		</constructor-arg>
+	</bean>
+	
+	<bean id="payeeMemberCode" class="java.lang.String">
+		<constructor-arg>
+			<value>10000000012</value>
+		</constructor-arg>
+	</bean>
+</beans>

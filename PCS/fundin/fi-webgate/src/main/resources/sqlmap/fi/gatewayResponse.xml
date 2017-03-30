@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="gatewayResponse">
+	<typeAlias alias="gatewayResponse" type="com.idealunited.gateway.model.GatewayResponse"/>
+    <resultMap id="gatewayResponseResult" class="gatewayResponse">
+        <result column="ID" property="id" jdbcType="DECIMAL"/>
+        <result column="LAST_NOTIFY_TIME" property="lastNotifyTime" jdbcType="TIMESTAMP"/>
+        <result column="ORDER_ID" property="orderId" jdbcType="VARCHAR"/>
+        <result column="PAGE_URL" property="pageUrl" jdbcType="VARCHAR"/>
+        <result column="NOTIFY_SUCCESS_COUNT" property="notifySuccessCount" jdbcType="DECIMAL"/>
+        <result column="SIGN_TYPE" property="signType" jdbcType="DECIMAL"/>
+        <result column="RESPONSE_CONTEXT" property="responseContext" jdbcType="VARCHAR"/>
+        <result column="PARTNER_ID" property="partnerId" jdbcType="VARCHAR"/>
+        <result column="REQUEST_ARRIVAL_TIME" property="requestArrivalTime" jdbcType="TIMESTAMP"/>
+        <result column="SERVICE_VERSION" property="serviceVersion" jdbcType="VARCHAR"/>
+        <result column="BUSINESS_TYPE" property="businessType" jdbcType="VARCHAR"/>
+        <result column="LAST_NOTIFY_STATE" property="lastNotifyState" jdbcType="DECIMAL"/>
+        <result column="BG_URL" property="bgUrl" jdbcType="VARCHAR"/>
+        <result column="SIGN_MSG" property="signMsg" jdbcType="VARCHAR"/>
+        <result column="ERROR_CODE" property="errorCode" jdbcType="VARCHAR"/>
+        <result column="NOTIFY_FAIL_COUNT" property="notifyFailCount" jdbcType="DECIMAL"/>
+        <result column="RETURN_STATUS" property="returnStatus" jdbcType="VARCHAR"/>
+        <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="ORDER_NO" property="orderNo" jdbcType="DECIMAL"/>
+    </resultMap>
+
+    <insert id="create" parameterClass="gatewayResponse">
+    	<selectKey resultClass="java.lang.Long" keyProperty="id">
+    		SELECT SEQ_RESPONSE_NO.nextval  FROM DUAL 
+    	</selectKey>
+        INSERT INTO GATEWAY_RESPONSE(
+			ID,LAST_NOTIFY_TIME,ORDER_ID,PAGE_URL,NOTIFY_SUCCESS_COUNT,
+			SIGN_TYPE,RESPONSE_CONTEXT,PARTNER_ID,REQUEST_ARRIVAL_TIME,SERVICE_VERSION,
+			BUSINESS_TYPE,LAST_NOTIFY_STATE,BG_URL,SIGN_MSG,
+			ERROR_CODE,NOTIFY_FAIL_COUNT,RETURN_STATUS,CREATE_DATE, ORDER_NO
+        )
+        VALUES(
+            #id#,#lastNotifyTime#,#orderId#,#pageUrl#,#notifySuccessCount#,
+			#signType#,#responseContext#,#partnerId#,#requestArrivalTime#,#serviceVersion#,
+			#businessType#,#lastNotifyState#,#bgUrl#,#signMsg#,
+			#errorCode#,#notifyFailCount#,#returnStatus#,sysdate, #orderNo#
+		)
+    </insert>
+    
+     <update id="updateSuccessByResponseNo" parameterClass="java.lang.Long">
+		UPDATE GATEWAY_RESPONSE 
+			set LAST_NOTIFY_TIME = sysdate, NOTIFY_SUCCESS_COUNT = NOTIFY_SUCCESS_COUNT + 1
+				, LAST_NOTIFY_STATE = 2
+		where 
+			ID = #id#
+	</update>
+	
+	<update id="updateFailByResponseNo" parameterClass="java.lang.Long">
+		UPDATE GATEWAY_RESPONSE 
+			set LAST_NOTIFY_TIME = sysdate, NOTIFY_FAIL_COUNT = NOTIFY_FAIL_COUNT + 1
+				, LAST_NOTIFY_STATE = 3
+		where 
+			ID = #id#
+	</update>
+	
+    <update id="updateSuccessByOrderNo" parameterClass="gatewayResponse">
+		UPDATE GATEWAY_RESPONSE 
+			set LAST_NOTIFY_TIME = sysdate, NOTIFY_SUCCESS_COUNT = #notifySuccessCount# + 1
+				, LAST_NOTIFY_STATE = 2
+		where 
+			ORDER_NO = #orderNo#
+	</update>
+	
+	<update id="updateFailByOrderNo" parameterClass="gatewayResponse">
+		UPDATE GATEWAY_RESPONSE 
+			set LAST_NOTIFY_TIME = sysdate, NOTIFY_FAIL_COUNT = #notifyFailCount# + 1
+				, LAST_NOTIFY_STATE = 3
+		where 
+			ORDER_NO = #orderNo#
+	</update>
+    
+    <delete id="delete" parameterClass="java.lang.Long">
+        DELETE FROM GATEWAY_RESPONSE        
+        <dynamic prepend="WHERE">
+        ID = #id#
+        </dynamic>
+    </delete>
+
+    <select id="findById" resultMap="gatewayResponseResult"
+        parameterClass="java.lang.Long">
+        SELECT 
+			*
+        FROM GATEWAY_RESPONSE
+        WHERE ID = #id#
+    </select>
+    
+    <select id="findByOrderNo" resultMap="gatewayResponseResult"
+        parameterClass="java.lang.Long">
+        SELECT 
+			*
+        FROM GATEWAY_RESPONSE
+        WHERE ORDER_NO = #tradeOrderNo#
+    </select>
+    
+    <select id="findBySelective" resultMap="gatewayResponseResult">
+        SELECT 
+			*
+        FROM GATEWAY_RESPONSE
+        <dynamic prepend="WHERE"> 
+        <isNotNull prepend="AND" property="id">
+            ID = #id# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="lastNotifyTime">
+            LAST_NOTIFY_TIME = #lastNotifyTime# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="orderId">
+            ORDER_ID = #orderId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="pageUrl">
+            PAGE_URL = #pageUrl# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="notifySuccessCount">
+            NOTIFY_SUCCESS_COUNT = #notifySuccessCount# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signType">
+            SIGN_TYPE = #signType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="responseContext">
+            RESPONSE_CONTEXT = #responseContext# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="partnerId">
+            PARTNER_ID = #partnerId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="requestArrivalTime">
+            REQUEST_ARRIVAL_TIME = #requestArrivalTime# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="serviceVersion">
+            SERVICE_VERSION = #serviceVersion# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="businessType">
+            BUSINESS_TYPE = #businessType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="lastNotifyState">
+            LAST_NOTIFY_STATE = #lastNotifyState# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="bgUrl">
+            BG_URL = #bgUrl# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signMsg">
+            SIGN_MSG = #signMsg# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="errorCode">
+            ERROR_CODE = #errorCode# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="notifyFailCount">
+            NOTIFY_FAIL_COUNT = #notifyFailCount# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="returnStatus">
+            RETURN_STATUS = #returnStatus# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="createDate">
+            CREATE_DATE = #createDate# 
+        </isNotNull>
+         <isNotNull prepend="AND" property="orderNo">
+            ORDER_NO = #orderNo# 
+        </isNotNull>
+        </dynamic>
+    </select>
+
+    <select id="countByExample"  resultClass="java.lang.Integer">
+        SELECT count(*) FROM GATEWAY_RESPONSE
+        <dynamic prepend="WHERE">
+        <isNotNull prepend="AND" property="id">
+            ID = #id# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="lastNotifyTime">
+            LAST_NOTIFY_TIME = #lastNotifyTime# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="orderId">
+            ORDER_ID = #orderId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="pageUrl">
+            PAGE_URL = #pageUrl# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="notifySuccessCount">
+            NOTIFY_SUCCESS_COUNT = #notifySuccessCount# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signType">
+            SIGN_TYPE = #signType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="responseContext">
+            RESPONSE_CONTEXT = #responseContext# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="partnerId">
+            PARTNER_ID = #partnerId# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="requestArrivalTime">
+            REQUEST_ARRIVAL_TIME = #requestArrivalTime# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="serviceVersion">
+            SERVICE_VERSION = #serviceVersion# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="businessType">
+            BUSINESS_TYPE = #businessType# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="lastNotifyState">
+            LAST_NOTIFY_STATE = #lastNotifyState# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="bgUrl">
+            BG_URL = #bgUrl# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="signMsg">
+            SIGN_MSG = #signMsg# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="errorCode">
+            ERROR_CODE = #errorCode# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="notifyFailCount">
+            NOTIFY_FAIL_COUNT = #notifyFailCount# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="returnStatus">
+            RETURN_STATUS = #returnStatus# 
+        </isNotNull>
+        <isNotNull prepend="AND" property="createDate">
+            CREATE_DATE = #createDate# 
+        </isNotNull>
+        </dynamic>
+    </select>
+</sqlMap>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<bean id="webgateHandlerMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<!--在线收单网关  -->
+				<prop key="/pay.htm">onlinePayAcquireController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="onlinePayAcquireController"
+		class="com.idealunited.gateway.controller.OnlinePayAcquireController">
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+		<property name="validateService">
+			<ref bean="nativepayAcquireValidateService" />
+		</property>
+		<property name="websitePath" value="${cross.config.website}"/>
+		<property name="txncoreClientService" ref="txncoreClientService" />
+		<property name="failRedirectUrl" value="${gateway.native.cashierFailUrl}" />
+		<property name="successRedirectUrl" value="/fi/ttf/toNative_pay_index" />
+		<property name="nativeCashierUrl" value="${gateway.native.cashierUrl}" />
+		<property name="quickPayCashierUrl" value="${gateway.native.quickpay.cashierUrl}" />
+	</bean>
+</beans>

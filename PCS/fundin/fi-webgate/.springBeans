@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.8.2.201610040608-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>src/main/resources/context/applicationContext-onlinePay-cashier-acquire-validate.xml</config>
+	</configs>
+	<autoconfigs>
+		<config>src/main/resources/servlet/fi-cashier-servlet.xml</config>
+		<config>src/main/resources/servlet/fi-realNameAuthentication-servlet.xml</config>
+		<config>src/main/resources/context/client-service.xml</config>
+		<config>src/main/resources/context/applicationContext-service.xml</config>
+		<config>src/main/resources/context/spring-jndi.xml</config>
+		<config>src/main/resources/context/context-map.xml</config>
+		<config>src/main/resources/context/spring-transcation.xml</config>
+		<config>src/main/resources/context/applicationContext-cosspay-api-acquire-validate.xml</config>
+		<config>src/main/resources/servlet/common-servlet.xml</config>
+		<config>src/main/resources/servlet/context-env.xml</config>
+		<config>src/main/resources/servlet/fi-crosspayAcquire-servlet.xml</config>
+		<config>src/main/resources/servlet/fi-waybill-servlet.xml</config>
+		<config>src/main/resources/context/applicationContext-dao.xml</config>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

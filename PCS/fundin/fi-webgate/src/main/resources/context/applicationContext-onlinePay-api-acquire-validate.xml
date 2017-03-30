@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jms="http://www.springframework.org/schema/jms"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-2.5.xsd
+            http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-2.5.xsd">
+
+	<!-- 跨境API收单 -->
+	<bean id="crosspayApiAcquireValidateService" class="com.idealunited.inf.service.impl.ValidateServiceImpl">
+		<property name="ruleEngine" ref="crosspay-api-acquireRule" />
+	</bean>
+
+	<bean id="crosspay-api-acquireRule" class="com.idealunited.inf.rule.RuleEngine">
+		<property name="firstStep">
+			<ref bean="crosspay-api-versionCheckRule" />
+		</property>
+	</bean>
+
+	<bean id="crosspay-api-versionCheckRule" class="com.idealunited.gateway.validate.onlinePay.api.VersionCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="crosspay-api-exceptionAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="crosspay-api-submitTimeCheckRule" />
+		</property>
+		<property name="messageId" value="0002" />
+		<property name="message" value="版本号不正确" />
+	</bean>
+	<bean id="crosspay-api-submitTimeCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.api.SubmitTimeCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="crosspay-api-exceptionAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="crosspay-api-merchantConfigureCheckRule" />
+		</property>
+		<property name="messageId" value="0006" />
+		<property name="message" value="订单提交时间不正确" />
+	</bean>
+	<bean id="crosspay-api-merchantConfigureCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.api.MerchantConfigureCheckRule">
+		<property name="txncoreClientService" ref="txncoreClientService" />
+		<property name="negativeOutcomeStep">
+			<ref bean="crosspay-api-exceptionAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="crosspay-api-signTypeCheckRule" />
+		</property>
+		<property name="messageId" value="0016" />
+		<property name="message" value="未授权限的商户" />
+	</bean>
+	<bean id="crosspay-api-signTypeCheckRule" class="com.idealunited.gateway.validate.onlinePay.api.SignTypeCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="crosspay-api-exceptionAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="crosspay-api-crosspayAcquireApiSignMsgCheckRule" />
+		</property>
+		<property name="messageId" value="0047" />
+		<property name="message" value="签名类型不正确" />
+	</bean>
+
+	<bean id="crosspay-api-crosspayAcquireApiSignMsgCheckRule"
+		class="com.idealunited.gateway.validate.onlinePay.api.OnlinePayAPIAcquireSignMsgCheckRule">
+		<property name="negativeOutcomeStep">
+			<ref bean="crosspay-api-exceptionAction" />
+		</property>
+		<property name="positiveOutcomeStep">
+			<ref local="crosspay-api-gatewayRequestSaveAction" />
+		</property>
+		<property name="txncoreClientService" ref="txncoreClientService" />
+		<property name="tradeDataSingnatureService" ref="tradeDataSingnatureService" />
+		<property name="messageId" value="0048" />
+		<property name="message" value="签名校验不通过" />
+	</bean>
+
+	<bean id="crosspay-api-gatewayRequestSaveAction"
+		class="com.idealunited.gateway.validate.onlinePay.api.GatewayRequestSaveAction">
+		<property name="gatewayRequestService" ref="gatewayRequestService" />
+		<property name="nextStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+	</bean>
+
+	<bean id="crosspay-api-exceptionAction" class="com.idealunited.gateway.validate.onlinePay.api.ExceptionAction">
+		<property name="tradeDataSingnatureService" ref="tradeDataSingnatureService" />
+		<property name="nextStep">
+			<ref bean="stopExecuteAction" />
+		</property>
+	</bean>
+
+</beans>

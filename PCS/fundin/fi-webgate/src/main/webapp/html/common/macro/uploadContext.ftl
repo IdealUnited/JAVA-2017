@@ -1,0 +1,1 @@
+<#macro upload ><#assign uploadContextTemplate = "com.ttf.app.common.template.UploadFileContextTemplate"?new()><#assign uploadContext = uploadContextTemplate()>${uploadContext}</#macro>

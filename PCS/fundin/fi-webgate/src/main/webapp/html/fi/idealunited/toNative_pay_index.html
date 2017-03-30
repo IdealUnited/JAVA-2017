@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="<@sp.static/>/js/ttf/common/jquery-1.3.2.js"
+	type="text/javascript"></script>
+<form name="toNativePayIndexForm" action="${cashierUrl}" method="post">
+	
+		<input type="hidden" name="direct" value="${direct?default('')}"/>
+		<input type="hidden" name="orderId" value="${orderId?default('')}"/>
+		<input type="hidden" name="tradeOrderNo" value="${tradeOrderNo?default('')}"/>
+		<input type="hidden" name="currencyCode" value="${currencyCode?default('')}"/>
+		<input type="hidden" name="orderAmount" value="${orderAmount?default('')}"/>
+		<input type="hidden" name="goodsName" value="${goodsName?default('')}"/>
+		<input type="hidden" name="goodsCount" value="${goodsCount?default('')}"/>
+		<input type="hidden" name="sellerName" value="${sellerName?default('')}"/>
+		<input type="hidden" name="partnerId" value="${partnerId?default('')}"/>
+		<input type="hidden" name="orderCurrencyCode" value="${orderCurrencyCode?default('')}"/>
+		<input type="hidden" name="returnUrl" value="${returnUrl?default('')}"/>
+		<input type="hidden" name="notifyUrl" value="${notifyUrl?default('')}"/>
+		<input type="hidden" name="websitePath" value="${websitePath?default('')}"/>
+		<input type="hidden" name="quickPayFlag" value="${quickPayFlag?default('')}"/>
+		<input type="hidden" name="platformId" value="${platformId?default('')}"/>
+		<input type="hidden" name="customerId" value="${customerId?default('')}"/>
+		<input type="hidden" name="payerFee" value="${payerFee?default('0')}"/>
+		<input type="hidden" name="tradeType" value="${tradeType?default('')}"/>
+		<input type="hidden" name="signMsg" value="${signMsg?default('')}"/>
+		
+</form>
+
+<script type="text/javascript">
+
+	document.toNativePayIndexForm.submit();
+
+</script>
+
+</head>
+</html>
