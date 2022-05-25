@@ -15,7 +15,7 @@
 	<properties>
 		<project.reporting.outputEncoding>utf-8	</project.reporting.outputEncoding>
 		<spring.version>3.2.5.RELEASE</spring.version>
-		<spring.security.version>2.0.4</spring.security.version>
+		<spring.security.version>5.5.7</spring.security.version>
 		<spring.ws.version>1.5.8</spring.ws.version>
 		<servlet.version>2.5</servlet.version>
 		<jsp.version>2.1</jsp.version>
